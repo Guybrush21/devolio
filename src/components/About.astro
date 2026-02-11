@@ -1,0 +1,38 @@
+---
+import SectionTitle from './SectionTitle.astro';
+
+interface Props {
+  paragraphs: string[];
+  podcasts?: {
+    name: string;
+    url: string;
+    description: string;
+  }[];
+}
+
+const { paragraphs, podcasts = [] } = Astro.props;
+---
+
+<section id="about" class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionTitle title="About Me" />
+    <div class="max-w-2xl space-y-4">
+      {paragraphs.map((paragraph) => (
+        <p class="text-text-muted text-lg" set:html={paragraph} />
+      ))}
+      {podcasts.length > 0 && (
+        <p class="text-text-muted text-lg">
+          When I'm not coding, I co-host {podcasts.length === 1 ? 'a podcast' : 'two podcasts'}: 
+          {podcasts.map((podcast, i) => (
+            <>
+              <a href={podcast.url} target="_blank" class="text-accent hover:text-accent-hover">
+                {podcast.name}
+              </a>
+              {' '}({podcast.description}){i < podcasts.length - 1 ? ' and ' : '.'}
+            </>
+          ))}
+        </p>
+      )}
+    </div>
+  </div>
+</section>

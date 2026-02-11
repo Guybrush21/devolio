@@ -1,0 +1,49 @@
+---
+import SectionTitle from './SectionTitle.astro';
+
+interface ContactItem {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+interface Props {
+  intro: string;
+  contactItems: ContactItem[];
+  downloadCv: {
+    href: string;
+    label: string;
+  };
+}
+
+const { intro, contactItems, downloadCv } = Astro.props;
+---
+
+<section id="contact" class="py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <SectionTitle title="Get in Touch" />
+    <p class="text-text-muted text-lg mb-8">{intro}</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-8 mb-8">
+      {contactItems.map((item) => (
+        item.href ? (
+          <a href={item.href} class="flex flex-col">
+            <span class="text-purple font-mono text-sm font-medium mb-1">{item.label}</span>
+            <span class="text-green font-mono">{item.value}</span>
+          </a>
+        ) : (
+          <div class="flex flex-col">
+            <span class="text-purple font-mono text-sm font-medium mb-1">{item.label}</span>
+            <span class="text-green font-mono">{item.value}</span>
+          </div>
+        )
+      ))}
+    </div>
+    <a 
+      href={downloadCv.href} 
+      download 
+      class="inline-block px-7 py-3.5 font-mono font-semibold rounded bg-green text-bg hover:bg-green/80 transition-colors"
+    >
+      :{downloadCv.label}
+    </a>
+  </div>
+</section>

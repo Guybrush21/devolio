@@ -1,0 +1,44 @@
+---
+import SectionTitle from './SectionTitle.astro';
+import ProjectCard from './ProjectCard.astro';
+
+interface Project {
+  name: string;
+  url: string;
+  description: string;
+}
+
+interface SocialLink {
+  label: string;
+  url: string;
+}
+
+interface Props {
+  projects: Project[];
+  socialLinks: SocialLink[];
+}
+
+const { projects, socialLinks } = Astro.props;
+---
+
+<section id="projects" class="py-20 bg-bg-secondary">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionTitle title="Projects" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      {projects.map((project) => (
+        <ProjectCard name={project.name} url={project.url} description={project.description} />
+      ))}
+    </div>
+    <div class="flex justify-center gap-8">
+      {socialLinks.map((link) => (
+        <a 
+          href={link.url} 
+          target="_blank" 
+          class="text-text-muted font-mono hover:text-accent transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

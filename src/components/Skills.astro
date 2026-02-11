@@ -1,0 +1,26 @@
+---
+import SectionTitle from './SectionTitle.astro';
+import SkillCard from './SkillCard.astro';
+
+interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+interface Props {
+  skills: SkillGroup[];
+}
+
+const { skills } = Astro.props;
+---
+
+<section id="skills" class="py-20 bg-bg-secondary">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionTitle title="Skills" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {skills.map((skillGroup) => (
+        <SkillCard category={skillGroup.category} items={skillGroup.items} />
+      ))}
+    </div>
+  </div>
+</section>

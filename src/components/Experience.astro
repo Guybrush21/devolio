@@ -1,0 +1,33 @@
+---
+import SectionTitle from './SectionTitle.astro';
+import TimelineItem from './TimelineItem.astro';
+
+interface Job {
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+}
+
+interface Props {
+  jobs: Job[];
+}
+
+const { jobs } = Astro.props;
+---
+
+<section id="experience" class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionTitle title="Experience" />
+    <div class="relative pl-8 border-l-2 border-border">
+      {jobs.map((job) => (
+        <TimelineItem
+          period={job.period}
+          role={job.role}
+          company={job.company}
+          description={job.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>

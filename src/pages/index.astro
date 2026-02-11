@@ -1,17 +1,53 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 
+import {
+  navLinks,
+  heroData,
+  aboutData,
+  skills,
+  jobs,
+  projects,
+  socialLinks,
+  contactData,
+  footerData,
+} from '../lib/data';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Nicholas Pellizer | Freelance Software Developer">
+  <Header links={navLinks} />
+
+  <main>
+    <Hero 
+      name={heroData.name}
+      role={heroData.role}
+      taglines={heroData.taglines}
+      ctaContact={heroData.ctaContact}
+      ctaDownload={heroData.ctaDownload}
+    />
+
+    <About paragraphs={aboutData.paragraphs} podcasts={aboutData.podcasts} />
+
+    <Skills skills={skills} />
+
+    <Experience jobs={jobs} />
+
+    <Projects projects={projects} socialLinks={socialLinks} />
+
+    <Contact 
+      intro={contactData.intro}
+      contactItems={contactData.items}
+      downloadCv={contactData.downloadCv}
+    />
+  </main>
+
+  <Footer name={footerData.name} tagline={footerData.tagline} />
+</BaseLayout>
