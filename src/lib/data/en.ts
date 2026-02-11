@@ -15,6 +15,7 @@ export const heroData = {
     "10+ years building robust applications",
     "Node.js | .NET | React | Angular",
     "Based in Trieste, Italy",
+    "AI writes the code, I make it work",
   ],
   ctaContact: { href: "#contact", label: "contact" },
   ctaDownload: { href: "/nicholaspellizer-en.pdf", label: "download cv" },
@@ -24,6 +25,7 @@ export const aboutData = {
   paragraphs: [
     "I like solving problems and fixing things. With over a decade of experience in software development, I've worked across the full stack, from complex data warehouses to modern web applications.",
     "I've led teams, managed projects, and delivered solutions that make a difference. Now I'm bringing that experience to freelance clients who need reliable, high-quality software development.",
+    "Yes, I use AI tools. No, I don't blindly trust them.",
   ],
   podcasts: [
     { name: "Oggi fa Bora", url: "https://oggifabora.it", description: "about Trieste" },
@@ -32,8 +34,8 @@ export const aboutData = {
 };
 
 export const skills = [
-  { category: "Backend", items: ["Node.js", "TypeScript", ".NET Core", "C#", "SQL Server"] },
-  { category: "Frontend", items: ["React", "Angular", "HTML5", "CSS3", "JavaScript"] },
+  { category: "Backend", items: ["Node.js", "TypeScript", ".NET Core", "C#", "SQL Server"], note: "anyway Claude will do almost everything" },
+  { category: "Frontend", items: ["React", "Angular", "HTML5", "CSS3", "JavaScript"], note: "you tell me what you need, I learn it" },
   { category: "DevOps", items: ["CI/CD", "Git", "Release Management"] },
   { category: "Soft Skills", items: ["Team Leadership", "Project Management", "Technical Analysis"] },
 ];
@@ -60,6 +62,7 @@ export const jobs = [
 ];
 
 export const projects = [
+  { name: "nicholaspellizer.it", url: "https://nicholaspellizer.it", description: "This site. See: recursion" },
   { name: "azionecattolica.trieste.it", url: "https://azionecattolica.trieste.it", description: "Association website" },
   { name: "puntomedia.trieste.it", url: "https://puntomedia.trieste.it", description: "Media organization site" },
   { name: "oggifabora.it", url: "https://oggifabora.it", description: "Podcast about Trieste" },

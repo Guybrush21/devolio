@@ -2,9 +2,10 @@
 interface Props {
   category: string;
   items: string[];
+  note?: string;
 }
 
-const { category, items } = Astro.props;
+const { category, items, note } = Astro.props;
 ---
 
 <div class="bg-bg p-6 rounded-lg border border-border">
@@ -16,4 +17,9 @@ const { category, items } = Astro.props;
       <li class="text-green font-mono text-sm">"{skill}"</li>
     ))}
   </ul>
+  {note && (
+    <p class="mt-4 text-text-muted font-mono text-xs italic">
+      <span class="text-yellow">*</span> {note}
+    </p>
+  )}
 </div>

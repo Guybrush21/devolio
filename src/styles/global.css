@@ -3,9 +3,10 @@
 /* One Dark Theme */
 @theme {
   --color-bg: #282c34;
+  --color-bg-dark: #1a1d23;
   --color-bg-secondary: #21252b;
   --color-bg-highlight: #2c323c;
-  --color-text: #abb2bf;
+  --color-text: #c8cdd5;
   --color-text-muted: #5c6370;
   --color-white: #dcdfe4;
   --color-accent: #61afef;

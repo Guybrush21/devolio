@@ -5,6 +5,7 @@ import SkillCard from './SkillCard.astro';
 interface SkillGroup {
   category: string;
   items: string[];
+  note?: string;
 }
 
 interface Props {
@@ -20,7 +21,7 @@ const { title, skills } = Astro.props;
     <SectionTitle title={title} />
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {skills.map((skillGroup) => (
-        <SkillCard category={skillGroup.category} items={skillGroup.items} />
+        <SkillCard category={skillGroup.category} items={skillGroup.items} note={skillGroup.note} />
       ))}
     </div>
   </div>
