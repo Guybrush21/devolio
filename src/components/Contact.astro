@@ -8,6 +8,7 @@ interface ContactItem {
 }
 
 interface Props {
+  title: string;
   intro: string;
   contactItems: ContactItem[];
   downloadCv: {
@@ -16,12 +17,12 @@ interface Props {
   };
 }
 
-const { intro, contactItems, downloadCv } = Astro.props;
+const { title, intro, contactItems, downloadCv } = Astro.props;
 ---
 
 <section id="contact" class="py-20">
   <div class="max-w-6xl mx-auto px-6 text-center">
-    <SectionTitle title="Get in Touch" />
+    <SectionTitle title={title} />
     <p class="text-text-muted text-lg mb-8">{intro}</p>
     <div class="flex flex-col sm:flex-row justify-center gap-8 mb-8">
       {contactItems.map((item) => (

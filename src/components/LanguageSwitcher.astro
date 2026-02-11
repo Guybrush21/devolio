@@ -1,0 +1,31 @@
+---
+import type { Language } from '../lib/i18n';
+
+interface Props {
+  currentLang: Language;
+}
+
+const { currentLang } = Astro.props;
+---
+
+<div class="flex items-center gap-1 font-mono text-sm">
+  <a 
+    href="/it/"
+    class:list={[
+      "px-2 py-1 rounded transition-colors",
+      currentLang === 'it' ? "bg-accent text-bg" : "text-text-muted hover:text-accent"
+    ]}
+  >
+    IT
+  </a>
+  <span class="text-text-muted">|</span>
+  <a 
+    href="/en/"
+    class:list={[
+      "px-2 py-1 rounded transition-colors",
+      currentLang === 'en' ? "bg-accent text-bg" : "text-text-muted hover:text-accent"
+    ]}
+  >
+    EN
+  </a>
+</div>

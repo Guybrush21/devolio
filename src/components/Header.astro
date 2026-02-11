@@ -1,27 +1,37 @@
 ---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import type { Language } from '../lib/i18n';
+
 interface Props {
   links: {
     href: string;
     label: string;
   }[];
+  currentLang: Language;
 }
 
-const { links } = Astro.props;
+const { links, currentLang } = Astro.props;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-border">
   <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="/" class="font-mono text-sm font-semibold">
+    <a href={`/${currentLang}/`} class="font-mono text-sm font-semibold">
       <span class="bg-green text-bg px-2 py-1 rounded">NORMAL</span>
     </a>
-    <ul class="hidden md:flex gap-8">
-      {links.map((link) => (
-        <li>
-          <a href={link.href} class="text-text-muted font-mono text-sm hover:text-accent transition-colors">
-            :{link.label}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="hidden md:flex items-center gap-8">
+      <ul class="flex gap-8">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="text-text-muted font-mono text-sm hover:text-accent transition-colors">
+              :{link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <LanguageSwitcher currentLang={currentLang} />
+    </div>
+    <div class="md:hidden">
+      <LanguageSwitcher currentLang={currentLang} />
+    </div>
   </nav>
 </header>

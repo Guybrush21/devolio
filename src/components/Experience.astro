@@ -10,15 +10,16 @@ interface Job {
 }
 
 interface Props {
+  title: string;
   jobs: Job[];
 }
 
-const { jobs } = Astro.props;
+const { title, jobs } = Astro.props;
 ---
 
 <section id="experience" class="py-20">
   <div class="max-w-6xl mx-auto px-6">
-    <SectionTitle title="Experience" />
+    <SectionTitle title={title} />
     <div class="relative pl-8 border-l-2 border-border">
       {jobs.map((job) => (
         <TimelineItem
