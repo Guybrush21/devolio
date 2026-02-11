@@ -34,10 +34,50 @@ export const aboutData = {
 };
 
 export const skills = [
-  { category: "Backend", items: ["Node.js", "TypeScript", ".NET Core", "C#", "SQL Server"], note: "anyway Claude will do almost everything" },
-  { category: "Frontend", items: ["React", "Angular", "HTML5", "CSS3", "JavaScript"], note: "you tell me what you need, I learn it" },
-  { category: "DevOps", items: ["CI/CD", "Git", "Release Management"] },
-  { category: "Soft Skills", items: ["Team Leadership", "Project Management", "Technical Analysis"] },
+  {
+    category: "Backend",
+    items: [".NET", "Node.js", "PostgreSQL", "SQL Server", "MongoDB", "Redis"],
+    note: "or just tell me what you need and I'll learn it",
+  },
+  {
+    category: "Frontend",
+    items: ["React", "Angular", "Vue", "Astro", "Tailwind", "Jekyll"],
+    note: "I can center a <div> without asking Claude or ChatGPT",
+  },
+  {
+    category: "DevOps",
+    items: [
+      "Github Actions",
+      "Docker",
+      "Kubernetes",
+      "Ansible",
+      "Google Cloud",
+      "Azure",
+    ],
+    note: "not an expert but I get by, and I'll learn whatever's needed",
+  },
+  {
+    category: "Languages",
+    items: ["C#", "Italian", "Typescript", "SQL", "English", "Rust", "Bash"],
+    note: "in this order",
+  },
+  {
+    category: "Other",
+    items: ["Linux", "Arduino", "Raspberry Pi", "Neovim"],
+    note: "i use arch btw",
+  },
+  {
+    category: "Non_tech",
+    items: [
+      "Team Leadership",
+      "Project Management",
+      "Agile Methodologies",
+      "Effective Communication",
+      "Requirements Analysis",
+      "Problem Solving",
+    ],
+    note: "I'm a nice guy",
+  },
 ];
 
 export const jobs = [
