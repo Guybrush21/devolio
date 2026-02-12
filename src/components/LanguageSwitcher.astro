@@ -13,7 +13,7 @@ const { currentLang } = Astro.props;
     href="/it/"
     class:list={[
       "px-2 py-1 rounded transition-colors",
-      currentLang === 'it' ? "bg-accent text-bg-dark" : "text-text-muted hover:text-accent"
+      currentLang === 'it' ? "bg-accent-btn text-white" : "text-text-muted hover:text-accent"
     ]}
   >
     IT
@@ -23,7 +23,7 @@ const { currentLang } = Astro.props;
     href="/en/"
     class:list={[
       "px-2 py-1 rounded transition-colors",
-      currentLang === 'en' ? "bg-accent text-bg-dark" : "text-text-muted hover:text-accent"
+      currentLang === 'en' ? "bg-accent-btn text-white" : "text-text-muted hover:text-accent"
     ]}
   >
     EN

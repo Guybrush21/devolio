@@ -18,8 +18,7 @@ interface Props {
 const { name, role, taglines, ctaContact, ctaDownload } = Astro.props;
 
 const terminalLines = [
-  { type: 'comment' as const, comment: "Hi, I'm" },
-  { type: 'assignment' as const, keyword: 'local', variable: 'developer', value: name },
+  { type: 'assignment' as const, keyword: 'local', variable: 'name', value: name },
   { type: 'assignment' as const, keyword: 'local', variable: 'role', value: role },
   { type: 'empty' as const },
   ...taglines.map(tagline => ({ type: 'comment' as const, comment: tagline })),
@@ -29,7 +28,7 @@ const terminalLines = [
 <section class="min-h-screen flex items-center pt-16">
   <div class="max-w-6xl mx-auto px-6 w-full">
     <div class="max-w-3xl">
-      <TerminalWindow filename="nvim ~/.profile" lines={terminalLines} />
+      <TerminalWindow filename="~/.profile" lines={terminalLines} />
       <div class="flex flex-col sm:flex-row gap-4">
         <a 
           href={ctaContact.href} 

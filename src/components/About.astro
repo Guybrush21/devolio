@@ -4,15 +4,9 @@ import SectionTitle from './SectionTitle.astro';
 interface Props {
   title: string;
   paragraphs: string[];
-  podcastIntro: string;
-  podcasts?: {
-    name: string;
-    url: string;
-    description: string;
-  }[];
 }
 
-const { title, paragraphs, podcastIntro, podcasts = [] } = Astro.props;
+const { title, paragraphs,  } = Astro.props;
 ---
 
 <section id="about" class="py-20">
@@ -22,19 +16,7 @@ const { title, paragraphs, podcastIntro, podcasts = [] } = Astro.props;
       {paragraphs.map((paragraph) => (
         <p class="text-text-muted text-lg" set:html={paragraph} />
       ))}
-      {podcasts.length > 0 && (
-        <p class="text-text-muted text-lg">
-          {podcastIntro}{' '}
-          {podcasts.map((podcast, i) => (
-            <>
-              <a href={podcast.url} target="_blank" class="text-accent hover:text-accent-hover">
-                {podcast.name}
-              </a>
-              {' '}({podcast.description}){i < podcasts.length - 1 ? ' e ' : '.'}
-            </>
-          ))}
-        </p>
-      )}
+
     </div>
   </div>
 </section>

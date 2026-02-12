@@ -19,8 +19,8 @@
   --color-orange: #d19a66;
   --color-border: #3e4451;
 
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: "Fira Code", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
 /* Base styles */

@@ -10,12 +10,10 @@ export const navLinks = [
 
 export const heroData = {
   name: "Nicholas Pellizer",
-  role: "Sviluppatore Software Freelance",
+  role: "Software Developer",
   taglines: [
-    "10+ anni di applicazioni robuste",
-    "Node.js | .NET | React | Angular",
+    "10+ anni di esperienza nello sviluppo, la manutenzione e la gestione di applicazioni",
     "Trieste, Italia",
-    "L'AI scrive il codice, io lo faccio funzionare",
   ],
   ctaContact: { href: "#contact", label: "contatti" },
   ctaDownload: { href: "/nicholaspellizer.pdf", label: "scarica cv" },
@@ -23,20 +21,10 @@ export const heroData = {
 
 export const aboutData = {
   paragraphs: [
-    "Mi piace risolvere problemi e aggiustare cose. Con oltre un decennio di esperienza nello sviluppo software, ho lavorato su tutto lo stack, dai data warehouse complessi alle moderne applicazioni web.",
-    "Ho guidato team, gestito progetti e consegnato soluzioni che fanno la differenza. Ora porto questa esperienza ai clienti freelance che hanno bisogno di sviluppo software affidabile e di alta qualità.",
-  ],
-  podcasts: [
-    {
-      name: "Oggi fa Bora",
-      url: "https://oggifabora.it",
-      description: "su Trieste",
-    },
-    {
-      name: "Decadi",
-      url: "https://decadi.it",
-      description: "differenze generazionali",
-    },
+    "Risolvo problemi e costruisco soluzioni. Con oltre un dieci anni di esperienza nello sviluppo software, ho lavorato su tutto lo stack, dai data warehouse complessi alle moderne applicazioni web.",
+    "La mia carriera mi ha permesso di muovermi con successo tra mondi diversi. Ho collaborato con grandi aziende nel settore finanziario, assicurativo e produttivo, dove la precisione, la sicurezza e la scalabilità sono fondamentali. Ho supportato startup, dove la velocità di esecuzione e l'adattabilità fanno la differenza tra un'idea e un prodotto di successo.",
+    "Dopo aver guidato team e gestito progetti critici, oggi metto questa esperienza al servizio dei miei clienti freelance. Non offro solo codice, ma sviluppo software affidabile, di alta qualità e orientato ai risultati.",
+    "Ho iniziato quando jQuery era la novità del momento. Ho usato React prima che esistessero gli Hook, Angular prima di TypeScript, e ho guidato la transizione verso il web di storiche applicazioni desktop. Dai primi framework monolitici agli odierni agenti AI, la mia costante è stata l'evoluzione: non mi limito a usare la tecnologia, la imparo mentre si trasforma.",
   ],
 };
 
@@ -48,7 +36,7 @@ export const skills = [
   },
   {
     category: "Frontend",
-    items: ["React", "Angular", "Vue", "Astro", "Tailwind", "Jekyll"],
+    items: ["React", "Angular", "Vue", "Astro", "NextJs", "Tailwind"],
     note: "posso centrare un <div> senza chiedere a Claude o a ChatGPT",
   },
   {
@@ -113,37 +101,37 @@ export const jobs = [
 
 export const projects = [
   {
+    name: "Profilo GitHub",
+    url: "https://github.com/Guybrush21",
+    description: "Se vuoi vedere un po' di codice, questo è il posto giusto.",
+  },
+  {
     name: "nicholaspellizer.it",
     url: "https://nicholaspellizer.it",
-    description: "Questo sito. Vedi: ricorsione",
+    description: "Questo sito qui. Vedi: ricorsione",
   },
   {
     name: "azionecattolica.trieste.it",
     url: "https://azionecattolica.trieste.it",
-    description: "Sito associazione",
+    description:
+      "Mi son trovato a gestire il sito dell'associazione di cui faccio parte. Un semplice wordpress.",
   },
   {
     name: "puntomedia.trieste.it",
     url: "https://puntomedia.trieste.it",
-    description: "Sito organizzazione media",
+    description:
+      "Sito vetrina per un negozio di telefonia. Realizzato con Grav per permettere al proprietario veloci personalizzazioni.",
   },
   {
     name: "oggifabora.it",
     url: "https://oggifabora.it",
-    description: "Podcast su Trieste",
+    description:
+      "Quando non programmo conduco, registro e monto un podcast su Trieste. Questo template scarica gli episodi da un feed RSS e genera un sito statico con Astro che viene deployato via FTP da delle Github Actions.",
   },
   {
     name: "decadi.it",
     url: "https://decadi.it",
-    description: "Progetto podcast",
-  },
-];
-
-export const socialLinks = [
-  { label: "Profilo GitHub", url: "https://github.com/Guybrush21" },
-  {
-    label: "Profilo CodeWars",
-    url: "https://www.codewars.com/users/Guybrush21",
+    description: "Il primo podcast che ho fatto. Jekyll e Cloudfare pages.",
   },
 ];
 
@@ -153,7 +141,7 @@ export const contactData = {
     {
       label: "Email",
       value: "mail@nicholaspellizer.it",
-      href: "mailto:mail@nicholaspellizer@it",
+      href: "mailto:mail@nicholaspellizer.it",
     },
     { label: "Telefono", value: "+39 338 284 8486", href: "tel:+393382848486" },
     { label: "Località", value: "Trieste, Italia" },
@@ -176,5 +164,4 @@ export const sectionTitles = {
 
 export const ui = {
   visitSite: "Visita sito",
-  podcastIntro: "Quando non programmo, co-conduco due podcast:",
 };

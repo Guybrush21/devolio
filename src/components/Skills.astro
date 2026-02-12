@@ -19,9 +19,11 @@ const { title, skills } = Astro.props;
 <section id="skills" class="py-20 bg-bg-secondary">
   <div class="max-w-6xl mx-auto px-6">
     <SectionTitle title={title} />
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="flex flex-wrap flex-col justify-center lg:flex-row gap-6">
       {skills.map((skillGroup) => (
-        <SkillCard category={skillGroup.category} items={skillGroup.items} note={skillGroup.note} />
+        <div class="w-full lg:w-1/5" >
+          <SkillCard category={skillGroup.category} items={skillGroup.items} note={skillGroup.note} />
+        </div>
       ))}
     </div>
   </div>
