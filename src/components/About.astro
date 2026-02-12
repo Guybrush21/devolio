@@ -12,11 +12,29 @@ const { title, paragraphs,  } = Astro.props;
 <section id="about" class="py-20">
   <div class="max-w-6xl mx-auto px-6">
     <SectionTitle title={title} />
-    <div class="max-w-2xl space-y-4">
-      {paragraphs.map((paragraph) => (
-        <p class="text-lg" set:html={paragraph} />
-      ))}
-
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
+      <div class="flex-shrink-0 flex justify-center lg:order-2 lg:w-1/3">
+        <div class="bg-bg-secondary rounded-lg border border-border overflow-hidden shadow-2xl">
+          <div class="bg-bg-highlight px-4 py-2 flex items-center gap-2 border-b border-border">
+            <span class="font-mono text-sm text-text-muted">~/me.jpg</span>
+          </div>
+          <div class="p-2">
+            <picture>
+              <source srcset="/me.webp" type="image/webp" />
+              <img 
+                src="/me.jpg" 
+                alt="Nicholas Pellizer"
+                class="rounded w-64 h-64 lg:w-80 lg:h-80 object-cover"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-4 lg:w-2/3 lg:order-1">
+        {paragraphs.map((paragraph) => (
+          <p class="text-lg" set:html={paragraph} />
+        ))}
+      </div>
     </div>
   </div>
 </section>
