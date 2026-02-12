@@ -24,13 +24,11 @@ if (!isValidLang(lang)) {
 }
 
 const data = lang === 'it' ? itData : enData;
-const alternateLang = getAlternateLang(lang as Language);
 ---
 
 <BaseLayout 
   title="Nicholas Pellizer | Freelance Software Developer"
   lang={lang}
-  alternateLang={alternateLang}
 >
   <Header links={data.navLinks} currentLang={lang as Language} />
 

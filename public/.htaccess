@@ -1,2 +1,5 @@
 # Instant redirect from root to Italian locale
-RedirectMatch 301 ^/$ /it/
+RewriteEngine On
+RewriteRule ^index\.html$ /it/ [R=301,L]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /it/ [R=301,L]
