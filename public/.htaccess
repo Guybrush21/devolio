@@ -1,0 +1,2 @@
+# Instant redirect from root to Italian locale
+RedirectMatch 301 ^/$ /it/
