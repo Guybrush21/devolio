@@ -146,7 +146,7 @@ export const contactData = {
     { label: "Phone", value: "+39 338 284 8486", href: "tel:+393382848486" },
     { label: "Location", value: "Trieste, Italy" },
   ],
-  downloadCv: { href: "/nicholaspellizer-en.pdf", label: "download cv" },
+  downloadCv: { href: "/nicholaspellizer.pdf", label: "download cv" },
 };
 
 export const footerData = {
