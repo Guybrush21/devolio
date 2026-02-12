@@ -23,8 +23,8 @@ export const aboutData = {
   paragraphs: [
     "Risolvo problemi e costruisco soluzioni. Con oltre un dieci anni di esperienza nello sviluppo software, ho lavorato su tutto lo stack, dai data warehouse complessi alle moderne applicazioni web.",
     "La mia carriera mi ha permesso di muovermi con successo tra mondi diversi. Ho collaborato con grandi aziende nel settore finanziario, assicurativo e produttivo, dove la precisione, la sicurezza e la scalabilità sono fondamentali. Ho supportato startup, dove la velocità di esecuzione e l'adattabilità fanno la differenza tra un'idea e un prodotto di successo.",
-    "Dopo aver guidato team e gestito progetti critici, oggi metto questa esperienza al servizio dei miei clienti freelance. Non offro solo codice, ma sviluppo software affidabile, di alta qualità e orientato ai risultati.",
-    "Ho iniziato quando jQuery era la novità del momento. Ho usato React prima che esistessero gli Hook, Angular prima di TypeScript, e ho guidato la transizione verso il web di storiche applicazioni desktop. Dai primi framework monolitici agli odierni agenti AI, la mia costante è stata l'evoluzione: non mi limito a usare la tecnologia, la imparo mentre si trasforma.",
+    "Dopo aver guidato team e gestito progetti critici, non offro solo codice, ma sviluppo software affidabile, di alta qualità e orientato ai risultati.",
+    "Ho iniziato quando jQuery era la novità del momento. Ho usato React prima che esistessero gli Hook, Angular prima di TypeScript, e ho guidato la transizione verso il web di storiche applicazioni desktop. Dai primi framework monolitici agli odierni agenti AI, la mia costante è stata l'evoluzione: non mi limito a usare la tecnologia, la imparo ogni giorno. ",
   ],
 };
 
@@ -37,7 +37,7 @@ export const skills = [
   {
     category: "Frontend",
     items: ["React", "Angular", "Vue", "Astro", "NextJs", "Tailwind"],
-    note: "posso centrare un <div> senza chiedere a Claude o a ChatGPT",
+    note: "so centrare un <div> senza chiedere a Claude o a ChatGPT, in meno di cinque minuti",
   },
   {
     category: "DevOps",
@@ -58,7 +58,7 @@ export const skills = [
   },
   {
     category: "Other",
-    items: ["Linux", "Arduino", "Raspberry Pi", "Neovim"],
+    items: ["Linux", "Arduino", "Raspberry Pi", "Neovim", "VS Code"],
     note: "i use arch btw",
   },
   {

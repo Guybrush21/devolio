@@ -10,12 +10,10 @@ export const navLinks = [
 
 export const heroData = {
   name: "Nicholas Pellizer",
-  role: "Freelance Software Developer",
+  role: "Software Developer",
   taglines: [
-    "10+ years building robust applications",
-    "Node.js | .NET | React | Angular",
-    "Based in Trieste, Italy",
-    "AI writes the code, I make it work",
+    "10+ years of experience in development, maintenance and management of applications",
+    "Trieste, Italy",
   ],
   ctaContact: { href: "#contact", label: "contact" },
   ctaDownload: { href: "/nicholaspellizer-en.pdf", label: "download cv" },
@@ -23,9 +21,10 @@ export const heroData = {
 
 export const aboutData = {
   paragraphs: [
-    "I like solving problems and fixing things. With over a decade of experience in software development, I've worked across the full stack, from complex data warehouses to modern web applications.",
-    "I've led teams, managed projects, and delivered solutions that make a difference. Now I'm bringing that experience to freelance clients who need reliable, high-quality software development.",
-    "Yes, I use AI tools. No, I don't blindly trust them.",
+    "I solve problems and build solutions. With over a decade of experience in software development, I've worked across the full stack, from complex data warehouses to modern web applications.",
+    "My career has allowed me to move successfully between different worlds. I've collaborated with large companies in the financial, insurance, and manufacturing sectors, where precision, security, and scalability are essential. I've supported startups, where speed of execution and adaptability make the difference between an idea and a successful product.",
+    "After leading teams and managing critical projects, I don't just offer code—I deliver reliable, high-quality software focused on results.",
+    "I started when jQuery was the hot new thing. I used React before Hooks existed, Angular before TypeScript, and led the transition to web for legacy desktop applications. From early monolithic frameworks to today's AI agents, my constant has been evolution: I don't just use technology, I learn it every day.",
   ],
 };
 
@@ -37,8 +36,8 @@ export const skills = [
   },
   {
     category: "Frontend",
-    items: ["React", "Angular", "Vue", "Astro", "Tailwind", "Jekyll"],
-    note: "I can center a <div> without asking Claude or ChatGPT",
+    items: ["React", "Angular", "Vue", "Astro", "NextJs", "Tailwind"],
+    note: "I can center a <div> without asking Claude or ChatGPT, in less than five minutes",
   },
   {
     category: "DevOps",
@@ -59,7 +58,7 @@ export const skills = [
   },
   {
     category: "Other",
-    items: ["Linux", "Arduino", "Raspberry Pi", "Neovim"],
+    items: ["Linux", "Arduino", "Raspberry Pi", "Neovim", "VS Code"],
     note: "i use arch btw",
   },
   {
@@ -102,37 +101,37 @@ export const jobs = [
 
 export const projects = [
   {
+    name: "GitHub Profile",
+    url: "https://github.com/Guybrush21",
+    description: "If you want to see some code, this is the right place.",
+  },
+  {
     name: "nicholaspellizer.it",
     url: "https://nicholaspellizer.it",
-    description: "This site. See: recursion",
+    description: "This very site. See: recursion",
   },
   {
     name: "azionecattolica.trieste.it",
     url: "https://azionecattolica.trieste.it",
-    description: "Association website",
+    description:
+      "I ended up managing the website for an association I'm part of. A simple WordPress site.",
   },
   {
     name: "puntomedia.trieste.it",
     url: "https://puntomedia.trieste.it",
-    description: "Media organization site",
+    description:
+      "Showcase site for a phone shop. Built with Grav to allow the owner quick customizations.",
   },
   {
     name: "oggifabora.it",
     url: "https://oggifabora.it",
-    description: "Podcast about Trieste",
+    description:
+      "When I'm not coding, I host, record and edit a podcast about Trieste. This template fetches episodes from an RSS feed and generates a static site with Astro, deployed via FTP through GitHub Actions.",
   },
   {
     name: "decadi.it",
     url: "https://decadi.it",
-    description: "Podcast project",
-  },
-];
-
-export const socialLinks = [
-  { label: "GitHub Profile", url: "https://github.com/Guybrush21" },
-  {
-    label: "CodeWars Profile",
-    url: "https://www.codewars.com/users/Guybrush21",
+    description: "The first podcast I made. Jekyll and Cloudflare Pages.",
   },
 ];
 

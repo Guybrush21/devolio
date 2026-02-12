@@ -45,9 +45,7 @@ const alternateLang = getAlternateLang(lang as Language);
 
     <About 
       paragraphs={data.aboutData.paragraphs} 
-      podcasts={data.aboutData.podcasts}
       title={data.sectionTitles.about}
-      podcastIntro={data.ui.podcastIntro}
     />
 
     <Skills skills={data.skills} title={data.sectionTitles.skills} />
@@ -56,7 +54,6 @@ const alternateLang = getAlternateLang(lang as Language);
 
     <Projects 
       projects={data.projects} 
-      socialLinks={data.socialLinks}
       title={data.sectionTitles.projects}
       visitSiteLabel={data.ui.visitSite}
     />

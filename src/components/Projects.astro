@@ -1,6 +1,8 @@
 ---
 import SectionTitle from './SectionTitle.astro';
 import ProjectCard from './ProjectCard.astro';
+import CardGrid from './CardGrid.astro';
+import CardGridItem from './CardGridItem.astro';
 
 interface Project {
   name: string;
@@ -8,35 +10,29 @@ interface Project {
   description: string;
 }
 
-interface SocialLink {
-  label: string;
-  url: string;
-}
-
 interface Props {
   title: string;
   projects: Project[];
-  socialLinks: SocialLink[];
   visitSiteLabel: string;
 }
 
-const { title, projects, socialLinks, visitSiteLabel } = Astro.props;
+const { title, projects, visitSiteLabel } = Astro.props;
 ---
 
 <section id="projects" class="py-20 bg-bg-secondary">
   <div class="max-w-6xl mx-auto px-6 ">
     <SectionTitle title={title} />
-    <div class="flex flex-wrap justify-center flex-col lg:flex-row gap-6">
+    <CardGrid>
       {projects.map((project) => (
-      <div class="w-full lg:w-1/4">
-        <ProjectCard 
-          name={project.name} 
-          url={project.url} 
-          description={project.description}
-          visitSiteLabel={visitSiteLabel}
-        />
-      </div>
+        <CardGridItem>
+          <ProjectCard 
+            name={project.name} 
+            url={project.url} 
+            description={project.description}
+            visitSiteLabel={visitSiteLabel}
+          />
+        </CardGridItem>
       ))}
-    </div>
+    </CardGrid>
   </div>
 </section>

@@ -23,7 +23,6 @@
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
-/* Base styles */
 html {
   scroll-behavior: smooth;
 }
@@ -32,14 +31,4 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-accent-hover);
 }

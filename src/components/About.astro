@@ -14,7 +14,7 @@ const { title, paragraphs,  } = Astro.props;
     <SectionTitle title={title} />
     <div class="max-w-2xl space-y-4">
       {paragraphs.map((paragraph) => (
-        <p class="text-text-muted text-lg" set:html={paragraph} />
+        <p class="text-lg" set:html={paragraph} />
       ))}
 
     </div>
