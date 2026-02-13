@@ -10,9 +10,10 @@ export const navLinks = [
 
 export const heroData = {
   name: "Nicholas Pellizer",
-  role: "Software Developer",
+  role: "FullStack Software Developer",
   taglines: [
     "10+ anni di esperienza nello sviluppo, la manutenzione e la gestione di applicazioni",
+    ".NET | Node.js | Angular | React | SQL",
     "Trieste, Italia",
   ],
   ctaContact: { href: "#contact", label: "contatti" },
@@ -49,7 +50,7 @@ export const skills = [
       "Google Cloud",
       "Azure",
     ],
-    note: "non sono un esperto ma me la cavo, e se serve imparo tutto",
+    note: "da grande faró il devops, per ora mi arrangio",
   },
   {
     category: "Linguaggi",
