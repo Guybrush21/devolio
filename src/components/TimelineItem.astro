@@ -3,10 +3,10 @@ interface Props {
   period: string;
   role: string;
   company: string;
-  description: string;
+  highlights: string[];
 }
 
-const { period, role, company, description } = Astro.props;
+const { period, role, company, highlights } = Astro.props;
 ---
 
 <div class="relative pb-10 last:pb-0 first:pt-[-2]">
@@ -14,5 +14,9 @@ const { period, role, company, description } = Astro.props;
   <span class="font-mono text-sm text-cyan font-medium">{period}</span>
   <h3 class="text-xl font-mono font-semibold text-white mt-1">{role}</h3>
   <p class="text-purple font-mono mb-2">{company}</p>
-  <p class="text-text-muted max-w-xl">{description}</p>
+  <ul class="text-text-muted max-w-2xl list-disc list-inside space-y-1">
+    {highlights.map((highlight) => (
+      <li>{highlight}</li>
+    ))}
+  </ul>
 </div>

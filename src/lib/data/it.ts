@@ -80,23 +80,37 @@ export const jobs = [
   {
     company: "Etiqa Srl",
     role: "Senior Software Developer",
-    period: "2022 - 2026",
-    description:
-      "Inserito in un team di sviluppatori senior e middle su stack Node.js. Mi sono occupato dell'analisi e della rifinitura dei task, garantendo efficienza e qualità per l'intero team. Ho gestito anche processi di rilascio e attività DevOps.",
+    period: "09/2022 - 01/2026",
+    highlights: [
+      "Progettazione e Ricerca (Healthcare): Analizzo e finalizzo l'integrazione con il provider di ricerca Algolia per un prodotto di prenotazione prestazioni sanitarie, gestendo la normalizzazione dei dati da database MongoDB e backend NestJS. Mi occupo di varie integrazioni tra cui MUX per gestire una libreria di videolezioni.",
+      "Ambito Welfare: Sviluppo un portale di welfare aziendale con backend in microservizi NestJS, frontend in Vue e dati su PostgreSQL, garantendo la stabilità del sistema sotto picchi di carico superiori alle migliaia di richieste al minuto. Gestisco anche la parte di reportistica garantendo affidabilità e velocità sulle viste interessate.",
+      "Risoluzione Criticità e Scalabilità: Individuato e risolto un collo di bottiglia sulla scalabilità orizzontale causato dai limiti delle connessioni TCP dirette tra microservizi NestJS. Ho proposto di riprogettare la comunicazione interna utilizzando un message broker Kafka o NATS, permettendo al sistema di scalare correttamente su cluster Kubernetes (GCP).",
+      "Analisi e Teamwork: Inserito in un team di sviluppatori senior e middle, mi sono occupato della rifinitura dei task e dell'analisi tecnica per garantire efficienza e qualità in ogni rilascio.",
+    ],
   },
   {
     company: "Gruppo Euris S.P.A.",
-    role: "Team Leader & Senior Developer",
-    period: "2017 - 2022",
-    description:
-      "Ho guidato un team di 3 sviluppatori gestendo ~20 applicazioni. Ho progettato architetture e integrazioni su .NET Core, Angular e React. Ho gestito aspetti finanziari di progetto e requisiti cliente. Ho portato a termine il primo progetto da 300+ giornate/uomo.",
+    role: "Tech Leader",
+    period: "09/2019 - 09/2022",
+    highlights: [
+      "Lead di Progetto Internazionale (450+ GG/U): Coordinato un team di 4-6 persone per la migrazione di un sistema critico di problem solving industriale (pattern 5 Why, Ishikawa) da MS Access a una moderna architettura .NET Core WebAPI con frontend Angular.",
+      "Performance Optimization (Global Scale): Ottimizzato le rotte di rete per gli impianti produttivi in Cina, riducendo i tempi di caricamento da 3000ms a 200ms.",
+      "Management & Financial Accountability: Gestito l'assegnazione dei task e il supporto tecnico costante al team, mantenendo la responsabilità dei target finanziari di progetto (marginalità e giornate/uomo) con pieno raggiungimento degli obiettivi.",
+      "Mentoring & Formazione: Responsabile della crescita professionale di diverse figure junior, guidandole dall'onboarding alla piena autonomia tecnica.",
+      "Modernizzazione Applicativa: Orchestrato il passaggio degli applicativi SharePoint da infrastrutture On-Premise a SharePoint Online, gestendo stakeholder internazionali in Polonia e Finlandia.",
+      "Technical Stack: Sviluppo su ecosistema Microsoft (ASP.NET MVC, .NET Core) con esteso utilizzo di Entity Framework e MS SQL Server.",
+    ],
   },
   {
     company: "Gruppo Euris S.P.A.",
-    role: "Junior Software Developer",
-    period: "2014 - 2017",
-    description:
-      "Ho sviluppato e mantenuto progetti su .NET Framework 3/4.5 MVC e un complesso data warehouse di risk management su SQL Server.",
+    role: "Junior & Senior Software Developer",
+    period: "05/2014 - 09/2019",
+    highlights: [
+      "Data Management (Banca Generali): Gestito e mantenuto un complesso Data Warehouse di Risk Management con dati globali. Responsabile della manutenzione di oltre 500 stored procedure (layer architecture) su un database con volumi di crescita di circa 2GB/giorno.",
+      "Sviluppo Specialistico (Fincantieri): Progettato e sviluppato un plugin in .NET per il CAD 3D MicroStation, dedicato all'ottimizzazione e alla gestione della stesura dei cavi all'interno delle commesse navali.",
+      "Integrazione & Legacy (AcegasApsAmga): Manutenzione evolutiva di applicativi legacy e implementazione di sistemi di messaggistica asincrona tramite l'integrazione di RabbitMQ.",
+      "Full Stack Development: Sviluppo e manutenzione di vari progetti basati su .NET Framework MVC e database MS SQL Server.",
+    ],
   },
 ];
 

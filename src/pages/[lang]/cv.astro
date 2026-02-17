@@ -224,6 +224,17 @@ const baseUrl = 'https://www.nicholaspellizer.it';
         color: var(--color-text);
       }
 
+      .cv-job-highlights {
+        margin-top: 0.375rem;
+        padding-left: 1.25rem;
+        font-size: 0.8125rem;
+        color: var(--color-text-muted);
+      }
+
+      .cv-job-highlights li {
+        margin-bottom: 0.125rem;
+      }
+
       /* Skills */
       .cv-skills-grid {
         display: grid;
@@ -398,7 +409,11 @@ const baseUrl = 'https://www.nicholaspellizer.it';
               <span class="cv-job-period">{job.period}</span>
             </div>
             <p class="cv-job-company">{job.company}</p>
-            <p class="cv-job-description">{job.description}</p>
+            <ul class="cv-job-highlights">
+              {job.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
           </div>
         ))}
       </section>

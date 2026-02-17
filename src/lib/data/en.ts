@@ -80,23 +80,37 @@ export const jobs = [
   {
     company: "Etiqa Srl",
     role: "Senior Software Developer",
-    period: "2022 - 2026",
-    description:
-      "Worked in a team of senior and middle developers on Node.js stack. Handled task analysis and refinement, ensuring efficiency and quality for the entire team. Also managed release processes and DevOps-related activities.",
+    period: "09/2022 - 01/2026",
+    highlights: [
+      "Design & Research (Healthcare): Analyzed and finalized integration with Algolia search provider for a healthcare booking product, managing data normalization from MongoDB database and NestJS backend. Handled various integrations including MUX for managing a video lesson library.",
+      "Welfare Scope: Developed a corporate welfare portal with NestJS microservices backend, Vue frontend and PostgreSQL data, ensuring system stability under load peaks exceeding thousands of requests per minute. Also managed reporting ensuring reliability and speed on affected views.",
+      "Critical Issue Resolution & Scalability: Identified and resolved a horizontal scalability bottleneck caused by TCP connection limits between NestJS microservices. Proposed redesigning internal communication using Kafka or NATS message broker, allowing the system to scale correctly on Kubernetes clusters (GCP).",
+      "Analysis & Teamwork: Working in a team of senior and middle developers, handled task refinement and technical analysis to ensure efficiency and quality in every release.",
+    ],
   },
   {
     company: "Gruppo Euris S.P.A.",
-    role: "Team Leader & Senior Developer",
-    period: "2017 - 2022",
-    description:
-      "Led a team of 3 developers managing ~20 applications. Designed architecture and integrations on .NET Core, Angular, and React. Managed project finances and client requirements. Delivered first 300+ person-day project.",
+    role: "Tech Leader",
+    period: "09/2019 - 09/2022",
+    highlights: [
+      "International Project Lead (450+ person-days): Coordinated a team of 4-6 people for the migration of a critical industrial problem-solving system (5 Why, Ishikawa patterns) from MS Access to a modern .NET Core WebAPI architecture with Angular frontend.",
+      "Performance Optimization (Global Scale): Optimized network routes for production plants in China, reducing load times from 3000ms to 200ms.",
+      "Management & Financial Accountability: Managed task assignment and constant technical support to the team, maintaining responsibility for project financial targets (margins and person-days) with full achievement of objectives.",
+      "Mentoring & Training: Responsible for the professional growth of several junior developers, guiding them from onboarding to full technical autonomy.",
+      "Application Modernization: Orchestrated the transition of SharePoint applications from On-Premise infrastructure to SharePoint Online, managing international stakeholders in Poland and Finland.",
+      "Technical Stack: Development on Microsoft ecosystem (ASP.NET MVC, .NET Core) with extensive use of Entity Framework and MS SQL Server.",
+    ],
   },
   {
     company: "Gruppo Euris S.P.A.",
-    role: "Junior Software Developer",
-    period: "2014 - 2017",
-    description:
-      "Developed and maintained projects on .NET Framework 3/4.5 MVC and a complex risk management data warehouse on SQL Server.",
+    role: "Junior & Senior Software Developer",
+    period: "05/2014 - 09/2019",
+    highlights: [
+      "Data Management (Banca Generali): Managed and maintained a complex Risk Management Data Warehouse with global data. Responsible for maintaining over 500 stored procedures (layer architecture) on a database with growth volumes of approximately 2GB/day.",
+      "Specialized Development (Fincantieri): Designed and developed a .NET plugin for MicroStation 3D CAD, dedicated to optimization and management of cable routing within naval contracts.",
+      "Integration & Legacy (AcegasApsAmga): Evolutionary maintenance of legacy applications and implementation of asynchronous messaging systems through RabbitMQ integration.",
+      "Full Stack Development: Development and maintenance of various projects based on .NET Framework MVC and MS SQL Server database.",
+    ],
   },
 ];
 

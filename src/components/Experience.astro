@@ -6,7 +6,7 @@ interface Job {
   period: string;
   role: string;
   company: string;
-  description: string;
+  highlights: string[];
 }
 
 interface Props {
@@ -26,7 +26,7 @@ const { title, jobs } = Astro.props;
           period={job.period}
           role={job.role}
           company={job.company}
-          description={job.description}
+          highlights={job.highlights}
         />
       ))}
     </div>
