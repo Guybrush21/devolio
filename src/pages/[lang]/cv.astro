@@ -1,0 +1,453 @@
+---
+import { languages, isValidLang, type Language } from '../../lib/i18n';
+import * as itData from '../../lib/data/it';
+import * as enData from '../../lib/data/en';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+
+if (!isValidLang(lang)) {
+  return Astro.redirect('/it/cv');
+}
+
+const data = lang === 'it' ? itData : enData;
+const alternateLang = lang === 'it' ? 'en' : 'it';
+
+// Separate technical skills from soft skills and languages
+const technicalSkills = data.skills.filter(
+  (s) => !['Non_tech', 'Linguaggi', 'Languages'].includes(s.category)
+);
+const softSkills = data.skills.find(
+  (s) => s.category === 'Non_tech'
+);
+const languageSkills = data.skills.find(
+  (s) => s.category === 'Linguaggi' || s.category === 'Languages'
+);
+
+const baseUrl = 'https://www.nicholaspellizer.it';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={`${data.heroData.name} - ${data.heroData.role} - Curriculum Vitae`} />
+    <title>{data.heroData.name} | {data.cvPage.title}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="alternate" hreflang="it" href={`${baseUrl}/it/cv`} />
+    <link rel="alternate" hreflang="en" href={`${baseUrl}/en/cv`} />
+    <link rel="canonical" href={`${baseUrl}/${lang}/cv`} />
+
+    <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-text: #1f2937;
+        --color-text-muted: #6b7280;
+        --color-border: #e5e7eb;
+        --color-bg: #ffffff;
+        --color-bg-subtle: #f9fafb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: var(--color-text);
+        background: var(--color-bg);
+        line-height: 1.5;
+        font-size: 11pt;
+      }
+
+      .print-controls {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        z-index: 100;
+      }
+
+      .print-controls a,
+      .print-controls button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .btn-primary {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background: #1d4ed8;
+      }
+
+      .btn-secondary {
+        background: var(--color-bg);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+      }
+
+      .btn-secondary:hover {
+        background: var(--color-bg-subtle);
+      }
+
+      .cv-container {
+        max-width: 210mm;
+        margin: 0 auto;
+        padding: 2rem;
+        background: var(--color-bg);
+      }
+
+      /* Header */
+      .cv-header {
+        border-bottom: 2px solid var(--color-primary);
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cv-name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 0.25rem;
+      }
+
+      .cv-role {
+        font-size: 1.25rem;
+        color: var(--color-primary);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .cv-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+      }
+
+      .cv-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+
+      .cv-contact a {
+        color: var(--color-text-muted);
+        text-decoration: none;
+      }
+
+      .cv-contact a:hover {
+        color: var(--color-primary);
+      }
+
+      /* Sections */
+      .cv-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .cv-section-title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-primary);
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.375rem;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Summary */
+      .cv-summary p {
+        color: var(--color-text);
+        font-size: 0.9375rem;
+      }
+
+      /* Experience */
+      .cv-job {
+        margin-bottom: 1rem;
+      }
+
+      .cv-job:last-child {
+        margin-bottom: 0;
+      }
+
+      .cv-job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .cv-job-title {
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      .cv-job-period {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        white-space: nowrap;
+      }
+
+      .cv-job-company {
+        font-size: 0.9375rem;
+        color: var(--color-text-muted);
+        margin-bottom: 0.25rem;
+      }
+
+      .cv-job-description {
+        font-size: 0.875rem;
+        color: var(--color-text);
+      }
+
+      /* Skills */
+      .cv-skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .cv-skill-category {
+        margin-bottom: 0.5rem;
+      }
+
+      .cv-skill-category-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--color-text);
+        margin-bottom: 0.125rem;
+      }
+
+      .cv-skill-items {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+      }
+
+      /* Two column layout */
+      .cv-two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      /* Links */
+      .cv-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .cv-link {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      .cv-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Print styles */
+      @media print {
+        .print-controls {
+          display: none !important;
+        }
+
+        body {
+          font-size: 10pt;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .cv-container {
+          padding: 0;
+          max-width: none;
+        }
+
+        .cv-header {
+          padding-bottom: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .cv-name {
+          font-size: 1.75rem;
+        }
+
+        .cv-role {
+          font-size: 1.125rem;
+        }
+
+        .cv-section {
+          margin-bottom: 1rem;
+        }
+
+        .cv-section-title {
+          font-size: 0.75rem;
+        }
+
+        .cv-job {
+          margin-bottom: 0.75rem;
+        }
+
+        @page {
+          margin: 15mm;
+          size: A4;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .cv-container {
+          padding: 1rem;
+        }
+
+        .cv-two-columns {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .cv-skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cv-contact {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .print-controls {
+          position: static;
+          justify-content: center;
+          padding: 1rem;
+          background: var(--color-bg-subtle);
+          border-bottom: 1px solid var(--color-border);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="print-controls">
+      <a href={`/${lang}/`} class="btn-secondary">{data.cvPage.backToSite}</a>
+      <a href={`/${alternateLang}/cv`} class="btn-secondary">{alternateLang.toUpperCase()}</a>
+      <button onclick="window.print()" class="btn-primary">{data.cvPage.printButton}</button>
+    </div>
+
+    <div class="cv-container">
+      <!-- Header -->
+      <header class="cv-header">
+        <h1 class="cv-name">{data.heroData.name}</h1>
+        <p class="cv-role">{data.heroData.role}</p>
+        <div class="cv-contact">
+          {data.contactData.items.map((item) => (
+            <span class="cv-contact-item">
+              {item.href ? (
+                <a href={item.href}>{item.value}</a>
+              ) : (
+                <span>{item.value}</span>
+              )}
+            </span>
+          ))}
+          <span class="cv-contact-item">
+            <a href="https://github.com/Guybrush21">github.com/Guybrush21</a>
+          </span>
+          <span class="cv-contact-item">
+            <a href="https://nicholaspellizer.it">nicholaspellizer.it</a>
+          </span>
+        </div>
+      </header>
+
+      <!-- Summary -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">{data.cvPage.summary}</h2>
+        <div class="cv-summary">
+          <p>{data.aboutData.paragraphs[0]}</p>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">{data.sectionTitles.experience}</h2>
+        {data.jobs.map((job) => (
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-title">{job.role}</span>
+              <span class="cv-job-period">{job.period}</span>
+            </div>
+            <p class="cv-job-company">{job.company}</p>
+            <p class="cv-job-description">{job.description}</p>
+          </div>
+        ))}
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">{data.cvPage.technicalSkills}</h2>
+        <div class="cv-skills-grid">
+          {technicalSkills.map((skill) => (
+            <div class="cv-skill-category">
+              <span class="cv-skill-category-name">{skill.category}:</span>
+              <span class="cv-skill-items">{skill.items.join(', ')}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Two column section: Soft Skills + Languages -->
+      <div class="cv-two-columns">
+        {softSkills && (
+          <section class="cv-section">
+            <h2 class="cv-section-title">{data.cvPage.softSkills}</h2>
+            <p class="cv-skill-items">{softSkills.items.join(', ')}</p>
+          </section>
+        )}
+
+        {languageSkills && (
+          <section class="cv-section">
+            <h2 class="cv-section-title">{data.cvPage.languages}</h2>
+            <p class="cv-skill-items">
+              {languageSkills.items
+                .filter((l) => ['Italiano', 'Italian', 'Inglese', 'English'].includes(l))
+                .join(', ')}
+            </p>
+          </section>
+        )}
+      </div>
+
+      <!-- Links / Projects -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">{data.cvPage.links}</h2>
+        <div class="cv-links">
+          {data.projects.slice(0, 4).map((project) => (
+            <a href={project.url} class="cv-link" target="_blank" rel="noopener">
+              {project.name}
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -166,3 +166,14 @@ export const sectionTitles = {
 export const ui = {
   visitSite: "Visit site",
 };
+
+export const cvPage = {
+  title: "Curriculum Vitae",
+  printButton: "Print CV",
+  backToSite: "Back to site",
+  summary: "Summary",
+  technicalSkills: "Technical Skills",
+  softSkills: "Soft Skills",
+  languages: "Languages",
+  links: "Links",
+};
