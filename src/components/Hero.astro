@@ -6,6 +6,8 @@ interface Props {
   name: string;
   role: string;
   taglines: string[];
+  stack: string;
+  location: string;
   ctaContact: {
     href: string;
     label: string;
@@ -16,11 +18,13 @@ interface Props {
   };
 }
 
-const { name, role, taglines, ctaContact, ctaDownload } = Astro.props;
+const { name, role, stack, location, taglines, ctaContact, ctaDownload } = Astro.props;
 
 const terminalLines = [
-  { type: 'assignment' as const, keyword: 'local', variable: 'name', value: name },
-  { type: 'assignment' as const, keyword: 'local', variable: 'role', value: role },
+  { type: 'assignment' as const, keyword: 'let', variable: 'name', value: name },
+  { type: 'assignment' as const, keyword: 'let', variable: 'role', value: role },
+  { type: 'assignment' as const, keyword: 'let', variable: 'stack', value: stack},
+  { type: 'assignment' as const, keyword: 'let', variable: 'location', value: location},
   { type: 'empty' as const },
   ...taglines.map(tagline => ({ type: 'comment' as const, comment: tagline })),
 ];

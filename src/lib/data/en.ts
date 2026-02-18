@@ -11,10 +11,12 @@ export const navLinks = [
 export const heroData = {
   name: "Nicholas Pellizer",
   role: "Fullstack Software Developer",
+  stack: "[.NET | Node.js | Angular | React | SQL]",
+  location: "Trieste, Italia",
   taglines: [
     "10+ years of experience in development, maintenance and management of applications",
-    ".NET | Node.js | Angular | React | SQL",
-    "Trieste, Italy",
+    "available as a freelance",
+    "I fix what AI messed up",
   ],
   ctaContact: { href: "#contact", label: "contact" },
   ctaDownload: { href: "/nicholaspellizer-en.pdf", label: "download cv" },
