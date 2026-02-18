@@ -2,6 +2,7 @@
 import { languages, isValidLang, type Language } from '../../lib/i18n';
 import * as itData from '../../lib/data/it';
 import * as enData from '../../lib/data/en';
+import { parseMarkdown } from '../../lib/markdown';
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -228,7 +229,7 @@ const baseUrl = 'https://www.nicholaspellizer.it';
         margin-top: 0.375rem;
         padding-left: 1.25rem;
         font-size: 0.8125rem;
-        color: var(--color-text-muted);
+        color: var(--color-text);
       }
 
       .cv-job-highlights li {
@@ -411,7 +412,7 @@ const baseUrl = 'https://www.nicholaspellizer.it';
             <p class="cv-job-company">{job.company}</p>
             <ul class="cv-job-highlights">
               {job.highlights.map((highlight) => (
-                <li>{highlight}</li>
+                <li set:html={parseMarkdown(highlight)} />
               ))}
             </ul>
           </div>

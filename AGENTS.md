@@ -6,6 +6,7 @@ Guidelines for AI agents working in this Astro TypeScript codebase.
 
 - **Framework**: Astro v5.x (static site generator)
 - **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS v4 (via Vite plugin)
 - **Package Manager**: npm
 - **Module System**: ES Modules (`"type": "module"`)
 
@@ -17,7 +18,9 @@ src/
 ├── components/     # Reusable components
 ├── layouts/        # Page layout components
 ├── content/        # Content collections
-└── lib/            # Utility functions
+├── lib/            # Utility functions
+│   └── data/       # i18n content (en.ts, it.ts)
+└── styles/         # Global CSS
 public/             # Static assets (served as-is)
 dist/               # Build output (gitignored)
 ```
@@ -30,7 +33,7 @@ dist/               # Build output (gitignored)
 | `npm run dev` | Start dev server at localhost:4321 |
 | `npm run build` | Build production site to ./dist/ |
 | `npm run preview` | Preview production build locally |
-| `npx astro check` | Run TypeScript diagnostics |
+| `npx astro check` | Run TypeScript diagnostics (requires @astrojs/check) |
 
 ## Testing (when configured)
 
