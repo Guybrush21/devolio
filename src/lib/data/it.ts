@@ -12,7 +12,7 @@ export const heroData = {
   name: "Nicholas Pellizer",
   role: "FullStack Software Developer",
   stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
-  location: "Trieste, Italia",
+  location: "Full Remote | Trieste, Italia",
   taglines: [
     "10+ anni di esperienza nello sviluppo, la manutenzione e la gestione di applicazioni",
     "disponibile come freelance",
