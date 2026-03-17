@@ -24,10 +24,9 @@ export const heroData = {
 
 export const aboutData = {
   paragraphs: [
-    "Risolvo problemi e costruisco soluzioni. Con oltre un dieci anni di esperienza nello sviluppo software, ho lavorato su tutto lo stack, dai data warehouse complessi alle moderne applicazioni web.",
-    "La mia carriera mi ha permesso di muovermi con successo tra mondi diversi. Ho collaborato con grandi aziende nel settore finanziario, assicurativo e produttivo, dove la precisione, la sicurezza e la scalabilità sono fondamentali. Ho supportato startup, dove la velocità di esecuzione e l'adattabilità fanno la differenza tra un'idea e un prodotto di successo.",
-    "Dopo aver guidato team e gestito progetti critici, non offro solo codice, ma sviluppo software affidabile, di alta qualità e orientato ai risultati.",
-    "Ho iniziato quando jQuery era la novità del momento. Ho usato React prima che esistessero gli Hook, Angular prima di TypeScript, e ho guidato la transizione verso il web di storiche applicazioni desktop. Dai primi framework monolitici agli odierni agenti AI, la mia costante è stata l'evoluzione: non mi limito a usare la tecnologia, la imparo ogni giorno. ",
+    "Risolvo problemi e costruisco soluzioni. Con oltre dieci anni di esperienza nello sviluppo e la manutenzione del software, mi sono sporcato le mani su data warehouse e sulle moderne applicazioni web.",
+    "La mia carriera mi ha permesso di vedere mondi diversi. Ho collaborato con grandi aziende nel settore finanziario, assicurativo e produttivo, dove servono precisione, sicurezza e scalabilità. Ho collaborato con startup, dove la velocità di esecuzione e l'adattabilità comandano.",
+    "Ho iniziato quando jQuery era indispensabile. Ho studiato .NET prima che fosse open source. Ho usato React prima che esistessero gli Hook, Angular prima di TypeScript, e ho guidato la transizione verso il web di storiche applicazioni desktop. Dai primi framework monolitici agli odierni agenti AI. Non mi limito a usare la tecnologia, continuo ad imparare ogni giorno.",
   ],
 };
 
