@@ -1,6 +1,6 @@
 ---
-import SectionTitle from './SectionTitle.astro';
-import TimelineItem from './TimelineItem.astro';
+import SectionTitle from "./SectionTitle.astro";
+import TimelineItem from "./TimelineItem.astro";
 
 interface Job {
   period: string;
@@ -21,14 +21,16 @@ const { title, jobs } = Astro.props;
   <div class="max-w-6xl mx-auto px-6">
     <SectionTitle title={title} />
     <div class="relative pl-8 border-l-2 border-border">
-      {jobs.map((job) => (
-        <TimelineItem
-          period={job.period}
-          role={job.role}
-          company={job.company}
-          highlights={job.highlights}
-        />
-      ))}
+      {
+        jobs.map((job) => (
+          <TimelineItem
+            period={job.period}
+            role={job.role}
+            company={job.company}
+            highlights={job.highlights}
+          />
+        ))
+      }
     </div>
   </div>
 </section>

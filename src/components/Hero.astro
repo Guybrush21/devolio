@@ -1,6 +1,6 @@
 ---
-import TerminalWindow from './TerminalWindow.astro';
-import Button from './Button.astro';
+import TerminalWindow from "./TerminalWindow.astro";
+import Button from "./Button.astro";
 
 interface Props {
   name: string;
@@ -18,15 +18,39 @@ interface Props {
   };
 }
 
-const { name, role, stack, location, taglines, ctaContact, ctaDownload } = Astro.props;
+const { name, role, stack, location, taglines, ctaContact, ctaDownload } =
+  Astro.props;
 
 const terminalLines = [
-  { type: 'assignment' as const, keyword: 'let', variable: 'name', value: name },
-  { type: 'assignment' as const, keyword: 'let', variable: 'role', value: role },
-  { type: 'assignment' as const, keyword: 'let', variable: 'stack', value: stack},
-  { type: 'assignment' as const, keyword: 'let', variable: 'location', value: location},
-  { type: 'empty' as const },
-  ...taglines.map(tagline => ({ type: 'comment' as const, comment: tagline })),
+  {
+    type: "assignment" as const,
+    keyword: "let",
+    variable: "name",
+    value: name,
+  },
+  {
+    type: "assignment" as const,
+    keyword: "let",
+    variable: "role",
+    value: role,
+  },
+  {
+    type: "assignment" as const,
+    keyword: "let",
+    variable: "stack",
+    value: stack,
+  },
+  {
+    type: "assignment" as const,
+    keyword: "let",
+    variable: "location",
+    value: location,
+  },
+  { type: "empty" as const },
+  ...taglines.map((tagline) => ({
+    type: "comment" as const,
+    comment: tagline,
+  })),
 ];
 ---
 

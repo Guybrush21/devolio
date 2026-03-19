@@ -1,4 +1,4 @@
-import { marked } from 'marked';
+import { marked } from "marked";
 
 /**
  * Parses inline markdown syntax (bold, italic, links) to HTML.

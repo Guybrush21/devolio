@@ -9,12 +9,14 @@ interface Props {
 const { name, url, description, visitSiteLabel } = Astro.props;
 ---
 
-<a 
-  href={url} 
-  target="_blank" 
+<a
+  href={url}
+  target="_blank"
   class="block bg-bg p-6 rounded-lg border border-border hover:border-green hover:-translate-y-0.5 transition-all"
 >
   <h3 class="font-mono text-sm font-semibold text-accent mb-2">{name}</h3>
   <p class="text-text-muted text-sm mb-4">{description}</p>
-  <span class="text-green font-mono text-sm font-medium">{visitSiteLabel} &rarr;</span>
+  <span class="text-green font-mono text-sm font-medium"
+    >{visitSiteLabel} &rarr;</span
+  >
 </a>

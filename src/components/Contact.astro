@@ -1,6 +1,6 @@
 ---
-import SectionTitle from './SectionTitle.astro';
-import Button from './Button.astro';
+import SectionTitle from "./SectionTitle.astro";
+import Button from "./Button.astro";
 
 interface ContactItem {
   label: string;
@@ -26,19 +26,25 @@ const { title, intro, contactItems, downloadCv } = Astro.props;
     <SectionTitle title={title} />
     <p class="text-text-muted text-lg mb-8">{intro}</p>
     <div class="flex flex-col sm:flex-row justify-center gap-8 mb-8">
-      {contactItems.map((item) => (
-        item.href ? (
-          <a href={item.href} class="flex flex-col">
-            <span class="text-purple font-mono text-sm font-medium mb-1">{item.label}</span>
-            <span class="text-green font-mono">{item.value}</span>
-          </a>
-        ) : (
-          <div class="flex flex-col">
-            <span class="text-purple font-mono text-sm font-medium mb-1">{item.label}</span>
-            <span class="text-green font-mono">{item.value}</span>
-          </div>
+      {
+        contactItems.map((item) =>
+          item.href ? (
+            <a href={item.href} class="flex flex-col">
+              <span class="text-purple font-mono text-sm font-medium mb-1">
+                {item.label}
+              </span>
+              <span class="text-green font-mono">{item.value}</span>
+            </a>
+          ) : (
+            <div class="flex flex-col">
+              <span class="text-purple font-mono text-sm font-medium mb-1">
+                {item.label}
+              </span>
+              <span class="text-green font-mono">{item.value}</span>
+            </div>
+          ),
         )
-      ))}
+      }
     </div>
     <Button href={downloadCv.href} download>
       :{downloadCv.label}

@@ -1,8 +1,8 @@
 ---
-import { languages, isValidLang, type Language } from '../../lib/i18n';
-import * as itData from '../../lib/data/it';
-import * as enData from '../../lib/data/en';
-import { parseMarkdown } from '../../lib/markdown';
+import { languages, isValidLang, type Language } from "../../lib/i18n";
+import * as itData from "../../lib/data/it";
+import * as enData from "../../lib/data/en";
+import { parseMarkdown } from "../../lib/markdown";
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -11,24 +11,22 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 
 if (!isValidLang(lang)) {
-  return Astro.redirect('/it/cv');
+  return Astro.redirect("/it/cv");
 }
 
-const data = lang === 'it' ? itData : enData;
-const alternateLang = lang === 'it' ? 'en' : 'it';
+const data = lang === "it" ? itData : enData;
+const alternateLang = lang === "it" ? "en" : "it";
 
 // Separate technical skills from soft skills and languages
 const technicalSkills = data.skills.filter(
-  (s) => !['Non_tech', 'Linguaggi', 'Languages'].includes(s.category)
+  (s) => !["Non_tech", "Linguaggi", "Languages"].includes(s.category),
 );
-const softSkills = data.skills.find(
-  (s) => s.category === 'Non_tech'
-);
+const softSkills = data.skills.find((s) => s.category === "Non_tech");
 const languageSkills = data.skills.find(
-  (s) => s.category === 'Linguaggi' || s.category === 'Languages'
+  (s) => s.category === "Linguaggi" || s.category === "Languages",
 );
 
-const baseUrl = 'https://www.nicholaspellizer.it';
+const baseUrl = "https://www.nicholaspellizer.it";
 ---
 
 <!doctype html>
@@ -37,13 +35,19 @@ const baseUrl = 'https://www.nicholaspellizer.it';
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={`${data.heroData.name} - ${data.heroData.role} - Curriculum Vitae`} />
+    <meta
+      name="description"
+      content={`${data.heroData.name} - ${data.heroData.role} - Curriculum Vitae`}
+    />
     <title>{data.heroData.name} | {data.cvPage.title}</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="alternate" hreflang="it" href={`${baseUrl}/it/cv`} />
     <link rel="alternate" hreflang="en" href={`${baseUrl}/en/cv`} />
     <link rel="canonical" href={`${baseUrl}/${lang}/cv`} />
@@ -65,7 +69,11 @@ const baseUrl = 'https://www.nicholaspellizer.it';
       }
 
       body {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
         color: var(--color-text);
         background: var(--color-bg);
         line-height: 1.5;
@@ -364,8 +372,12 @@ const baseUrl = 'https://www.nicholaspellizer.it';
   <body>
     <div class="print-controls">
       <a href={`/${lang}/`} class="btn-secondary">{data.cvPage.backToSite}</a>
-      <a href={`/${alternateLang}/cv`} class="btn-secondary">{alternateLang.toUpperCase()}</a>
-      <button onclick="window.print()" class="btn-primary">{data.cvPage.printButton}</button>
+      <a href={`/${alternateLang}/cv`} class="btn-secondary"
+        >{alternateLang.toUpperCase()}</a
+      >
+      <button onclick="window.print()" class="btn-primary"
+        >{data.cvPage.printButton}</button
+      >
     </div>
 
     <div class="cv-container">
@@ -374,15 +386,17 @@ const baseUrl = 'https://www.nicholaspellizer.it';
         <h1 class="cv-name">{data.heroData.name}</h1>
         <p class="cv-role">{data.heroData.role}</p>
         <div class="cv-contact">
-          {data.contactData.items.map((item) => (
-            <span class="cv-contact-item">
-              {item.href ? (
-                <a href={item.href}>{item.value}</a>
-              ) : (
-                <span>{item.value}</span>
-              )}
-            </span>
-          ))}
+          {
+            data.contactData.items.map((item) => (
+              <span class="cv-contact-item">
+                {item.href ? (
+                  <a href={item.href}>{item.value}</a>
+                ) : (
+                  <span>{item.value}</span>
+                )}
+              </span>
+            ))
+          }
           <span class="cv-contact-item">
             <a href="https://github.com/Guybrush21">github.com/Guybrush21</a>
           </span>
@@ -403,65 +417,82 @@ const baseUrl = 'https://www.nicholaspellizer.it';
       <!-- Experience -->
       <section class="cv-section">
         <h2 class="cv-section-title">{data.sectionTitles.experience}</h2>
-        {data.jobs.map((job) => (
-          <div class="cv-job">
-            <div class="cv-job-header">
-              <span class="cv-job-title">{job.role}</span>
-              <span class="cv-job-period">{job.period}</span>
+        {
+          data.jobs.map((job) => (
+            <div class="cv-job">
+              <div class="cv-job-header">
+                <span class="cv-job-title">{job.role}</span>
+                <span class="cv-job-period">{job.period}</span>
+              </div>
+              <p class="cv-job-company">{job.company}</p>
+              <ul class="cv-job-highlights">
+                {job.highlights.map((highlight) => (
+                  <li set:html={parseMarkdown(highlight)} />
+                ))}
+              </ul>
             </div>
-            <p class="cv-job-company">{job.company}</p>
-            <ul class="cv-job-highlights">
-              {job.highlights.map((highlight) => (
-                <li set:html={parseMarkdown(highlight)} />
-              ))}
-            </ul>
-          </div>
-        ))}
+          ))
+        }
       </section>
 
       <!-- Technical Skills -->
       <section class="cv-section">
         <h2 class="cv-section-title">{data.cvPage.technicalSkills}</h2>
         <div class="cv-skills-grid">
-          {technicalSkills.map((skill) => (
-            <div class="cv-skill-category">
-              <span class="cv-skill-category-name">{skill.category}:</span>
-              <span class="cv-skill-items">{skill.items.join(', ')}</span>
-            </div>
-          ))}
+          {
+            technicalSkills.map((skill) => (
+              <div class="cv-skill-category">
+                <span class="cv-skill-category-name">{skill.category}:</span>
+                <span class="cv-skill-items">{skill.items.join(", ")}</span>
+              </div>
+            ))
+          }
         </div>
       </section>
 
       <!-- Two column section: Soft Skills + Languages -->
       <div class="cv-two-columns">
-        {softSkills && (
-          <section class="cv-section">
-            <h2 class="cv-section-title">{data.cvPage.softSkills}</h2>
-            <p class="cv-skill-items">{softSkills.items.join(', ')}</p>
-          </section>
-        )}
+        {
+          softSkills && (
+            <section class="cv-section">
+              <h2 class="cv-section-title">{data.cvPage.softSkills}</h2>
+              <p class="cv-skill-items">{softSkills.items.join(", ")}</p>
+            </section>
+          )
+        }
 
-        {languageSkills && (
-          <section class="cv-section">
-            <h2 class="cv-section-title">{data.cvPage.languages}</h2>
-            <p class="cv-skill-items">
-              {languageSkills.items
-                .filter((l) => ['Italiano', 'Italian', 'Inglese', 'English'].includes(l))
-                .join(', ')}
-            </p>
-          </section>
-        )}
+        {
+          languageSkills && (
+            <section class="cv-section">
+              <h2 class="cv-section-title">{data.cvPage.languages}</h2>
+              <p class="cv-skill-items">
+                {languageSkills.items
+                  .filter((l) =>
+                    ["Italiano", "Italian", "Inglese", "English"].includes(l),
+                  )
+                  .join(", ")}
+              </p>
+            </section>
+          )
+        }
       </div>
 
       <!-- Links / Projects -->
       <section class="cv-section">
         <h2 class="cv-section-title">{data.cvPage.links}</h2>
         <div class="cv-links">
-          {data.projects.slice(0, 4).map((project) => (
-            <a href={project.url} class="cv-link" target="_blank" rel="noopener">
-              {project.name}
-            </a>
-          ))}
+          {
+            data.projects.slice(0, 4).map((project) => (
+              <a
+                href={project.url}
+                class="cv-link"
+                target="_blank"
+                rel="noopener"
+              >
+                {project.name}
+              </a>
+            ))
+          }
         </div>
       </section>
     </div>

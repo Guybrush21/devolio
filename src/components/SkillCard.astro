@@ -13,13 +13,17 @@ const { category, items, note } = Astro.props;
     <span class="text-text-muted">-- </span>{category}
   </h3>
   <ul class="space-y-1">
-    {items.map((skill) => (
-      <li class="text-green font-mono text-sm">"{skill}"</li>
-    ))}
+    {
+      items.map((skill) => (
+        <li class="text-green font-mono text-sm">"{skill}"</li>
+      ))
+    }
   </ul>
-  {note && (
-    <p class="mt-4 text-text-muted font-mono text-xs italic">
-      <span class="text-yellow">*</span> {note}
-    </p>
-  )}
+  {
+    note && (
+      <p class="mt-4 text-text-muted font-mono text-xs italic">
+        <span class="text-yellow">*</span> {note}
+      </p>
+    )
+  }
 </div>

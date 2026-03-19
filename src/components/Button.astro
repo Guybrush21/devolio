@@ -6,13 +6,20 @@ interface Props {
   class?: string;
 }
 
-const { href, variant = "primary", download = false, class: className = "" } = Astro.props;
+const {
+  href,
+  variant = "primary",
+  download = false,
+  class: className = "",
+} = Astro.props;
 
-const baseClasses = "inline-block px-7 py-3.5 font-mono font-semibold rounded transition-colors text-center";
+const baseClasses =
+  "inline-block px-7 py-3.5 font-mono font-semibold rounded transition-colors text-center";
 
 const variantClasses = {
   primary: "bg-green text-bg-dark hover:bg-green/80",
-  secondary: "border-2 border-border text-text hover:border-accent hover:text-accent",
+  secondary:
+    "border-2 border-border text-text hover:border-accent hover:text-accent",
 };
 
 const classes = `${baseClasses} ${variantClasses[variant]} ${className}`.trim();

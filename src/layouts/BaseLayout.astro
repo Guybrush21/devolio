@@ -1,6 +1,6 @@
 ---
-import '../styles/global.css';
-import type { Language } from '../lib/i18n';
+import "../styles/global.css";
+import type { Language } from "../lib/i18n";
 
 interface Props {
   title: string;
@@ -8,13 +8,13 @@ interface Props {
   lang?: Language;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Nicholas Pellizer - Freelance Software Developer specializing in Node.js, .NET, React and Angular",
-  lang = 'it',
+  lang = "it",
 } = Astro.props;
 
-const baseUrl = 'https://www.nicholaspellizer.it';
+const baseUrl = "https://www.nicholaspellizer.it";
 ---
 
 <!doctype html>
@@ -27,15 +27,22 @@ const baseUrl = 'https://www.nicholaspellizer.it';
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="alternate" hreflang="it" href={`${baseUrl}/it/`} />
     <link rel="alternate" hreflang="en" href={`${baseUrl}/en/`} />
     <link rel="alternate" hreflang="x-default" href={`${baseUrl}/it/`} />
     <link rel="canonical" href={`${baseUrl}/${lang}/`} />
+    <script
+      defer
+      src="https://umami.elaine.pw/script.js"
+      data-website-id="a1bd4164-76bd-4cfc-8065-b413d2a8a240"></script>
   </head>
   <body class="leading-relaxed">
     <slot />

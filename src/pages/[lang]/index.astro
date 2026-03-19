@@ -1,17 +1,17 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Hero from '../../components/Hero.astro';
-import About from '../../components/About.astro';
-import Skills from '../../components/Skills.astro';
-import Experience from '../../components/Experience.astro';
-import Projects from '../../components/Projects.astro';
-import Contact from '../../components/Contact.astro';
-import Footer from '../../components/Footer.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import About from "../../components/About.astro";
+import Skills from "../../components/Skills.astro";
+import Experience from "../../components/Experience.astro";
+import Projects from "../../components/Projects.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
 
-import { languages, isValidLang,  type Language } from '../../lib/i18n';
-import * as itData from '../../lib/data/it';
-import * as enData from '../../lib/data/en';
+import { languages, isValidLang, type Language } from "../../lib/i18n";
+import * as itData from "../../lib/data/it";
+import * as enData from "../../lib/data/en";
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -20,20 +20,17 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 
 if (!isValidLang(lang)) {
-  return Astro.redirect('/it/');
+  return Astro.redirect("/it/");
 }
 
-const data = lang === 'it' ? itData : enData;
+const data = lang === "it" ? itData : enData;
 ---
 
-<BaseLayout 
-  title="Nicholas Pellizer | FullStack Developer"
-  lang={lang}
->
+<BaseLayout title="Nicholas Pellizer | FullStack Developer" lang={lang}>
   <Header links={data.navLinks} currentLang={lang as Language} />
 
   <main>
-    <Hero 
+    <Hero
       name={data.heroData.name}
       role={data.heroData.role}
       stack={data.heroData.stack}
@@ -43,8 +40,8 @@ const data = lang === 'it' ? itData : enData;
       ctaDownload={data.heroData.ctaDownload}
     />
 
-    <About 
-      paragraphs={data.aboutData.paragraphs} 
+    <About
+      paragraphs={data.aboutData.paragraphs}
       title={data.sectionTitles.about}
     />
 
@@ -52,13 +49,13 @@ const data = lang === 'it' ? itData : enData;
 
     <Experience jobs={data.jobs} title={data.sectionTitles.experience} />
 
-    <Projects 
-      projects={data.projects} 
+    <Projects
+      projects={data.projects}
       title={data.sectionTitles.projects}
       visitSiteLabel={data.ui.visitSite}
     />
 
-    <Contact 
+    <Contact
       intro={data.contactData.intro}
       contactItems={data.contactData.items}
       downloadCv={data.contactData.downloadCv}

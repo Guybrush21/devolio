@@ -1,8 +1,8 @@
 ---
-import SectionTitle from './SectionTitle.astro';
-import SkillCard from './SkillCard.astro';
-import CardGrid from './CardGrid.astro';
-import CardGridItem from './CardGridItem.astro';
+import SectionTitle from "./SectionTitle.astro";
+import SkillCard from "./SkillCard.astro";
+import CardGrid from "./CardGrid.astro";
+import CardGridItem from "./CardGridItem.astro";
 
 interface SkillGroup {
   category: string;
@@ -22,11 +22,17 @@ const { title, skills } = Astro.props;
   <div class="max-w-6xl mx-auto px-6">
     <SectionTitle title={title} />
     <CardGrid>
-      {skills.map((skillGroup) => (
-        <CardGridItem>
-          <SkillCard category={skillGroup.category} items={skillGroup.items} note={skillGroup.note} />
-        </CardGridItem>
-      ))}
+      {
+        skills.map((skillGroup) => (
+          <CardGridItem>
+            <SkillCard
+              category={skillGroup.category}
+              items={skillGroup.items}
+              note={skillGroup.note}
+            />
+          </CardGridItem>
+        ))
+      }
     </CardGrid>
   </div>
 </section>

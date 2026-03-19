@@ -1,8 +1,8 @@
 ---
-import SectionTitle from './SectionTitle.astro';
-import ProjectCard from './ProjectCard.astro';
-import CardGrid from './CardGrid.astro';
-import CardGridItem from './CardGridItem.astro';
+import SectionTitle from "./SectionTitle.astro";
+import ProjectCard from "./ProjectCard.astro";
+import CardGrid from "./CardGrid.astro";
+import CardGridItem from "./CardGridItem.astro";
 
 interface Project {
   name: string;
@@ -20,19 +20,21 @@ const { title, projects, visitSiteLabel } = Astro.props;
 ---
 
 <section id="projects" class="py-20 bg-bg-secondary">
-  <div class="max-w-6xl mx-auto px-6 ">
+  <div class="max-w-6xl mx-auto px-6">
     <SectionTitle title={title} />
     <CardGrid>
-      {projects.map((project) => (
-        <CardGridItem>
-          <ProjectCard 
-            name={project.name} 
-            url={project.url} 
-            description={project.description}
-            visitSiteLabel={visitSiteLabel}
-          />
-        </CardGridItem>
-      ))}
+      {
+        projects.map((project) => (
+          <CardGridItem>
+            <ProjectCard
+              name={project.name}
+              url={project.url}
+              description={project.description}
+              visitSiteLabel={visitSiteLabel}
+            />
+          </CardGridItem>
+        ))
+      }
     </CardGrid>
   </div>
 </section>
