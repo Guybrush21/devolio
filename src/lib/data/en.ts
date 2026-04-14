@@ -16,10 +16,9 @@ export const heroData = {
   taglines: [
     "10+ years of experience in development, maintenance and management of applications",
     "available as a freelance",
-    "I fix what AI messed up",
   ],
   ctaContact: { href: "#contact", label: "contact" },
-  ctaDownload: { href: "/nicholaspellizer-en.pdf", label: "download cv" },
+  ctaDownload: { href: "/nicholaspellizer.pdf", label: "download cv" },
 };
 
 export const aboutData = {
