@@ -6,6 +6,7 @@ import About from "../../components/About.astro";
 import Skills from "../../components/Skills.astro";
 import Experience from "../../components/Experience.astro";
 import Projects from "../../components/Projects.astro";
+import Services from "../../components/Services.astro";
 import Contact from "../../components/Contact.astro";
 import Footer from "../../components/Footer.astro";
 
@@ -44,6 +45,8 @@ const data = lang === "it" ? itData : enData;
       paragraphs={data.aboutData.paragraphs}
       title={data.sectionTitles.about}
     />
+
+    <Services services={data.servicesData} title={data.sectionTitles.services} />
 
     <Skills skills={data.skills} title={data.sectionTitles.skills} />
 

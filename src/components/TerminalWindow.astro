@@ -19,23 +19,19 @@ const { filename, lines } = Astro.props;
   <div
     class="bg-bg-highlight px-4 py-3 flex items-center gap-2 border-b border-border"
   >
-    <!-- <span class="w-3 h-3 rounded-full bg-red"></span> -->
-    <!-- <span class="w-3 h-3 rounded-full bg-yellow"></span> -->
-    <!-- <span class="w-3 h-3 rounded-full bg-green"></span> -->
     <span class="ml-2 font-mono text-sm text-text-muted">{filename}</span>
   </div>
-  <div class="flex p-6">
-    <div
-      class="pr-6 border-r border-border mr-6 font-mono text-text-muted text-right select-none leading-loose"
-    >
-      {lines.map((_, i) => <div>{i + 1}</div>)}
-    </div>
-    <div class="font-mono leading-loose">
-      {
-        lines.map((line) => (
-          <p class="min-h-[1.8em]">
+
+  <div class="p-6 font-mono">
+    {
+      lines.map((line, i) => (
+        <div class="flex leading-loose">
+          <div class="pr-6 border-r border-border mr-6 text-text-muted text-right select-none w-6 shrink-0">
+            {i + 1}
+          </div>
+          <div class="min-h-[1.8em] flex-1">
             {line.type === "comment" && (
-              <span class="text-text-muted italic">-- {line.comment}</span>
+              <span class="text-text-muted italic"> // {line.comment}</span>
             )}
             {line.type === "assignment" && (
               <>
@@ -46,9 +42,9 @@ const { filename, lines } = Astro.props;
               </>
             )}
             {line.type === "empty" && <>&nbsp;</>}
-          </p>
-        ))
-      }
-    </div>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </div>

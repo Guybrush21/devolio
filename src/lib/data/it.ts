@@ -5,12 +5,13 @@ export const navLinks = [
   { href: "#skills", label: "competenze" },
   { href: "#experience", label: "esperienza" },
   { href: "#projects", label: "progetti" },
+  { href: "#services", label: "servizi" },
   { href: "#contact", label: "contatti" },
 ];
 
 export const heroData = {
   name: "Nicholas Pellizer",
-  role: "FullStack Software Developer",
+  role: "Full-Stack Architect & Tech Lead",
   stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
   location: "Full Remote | Trieste, Italia",
   taglines: [
@@ -151,6 +152,53 @@ export const projects = [
   },
 ];
 
+export const servicesData = [
+  {
+    name: "Architettura e Sviluppo Software",
+    description:
+      "Progettazione e sviluppo di sistemi scalabili e manutenibili, su misura per le esigenze del tuo business. Sviluppo full-stack su .NET, Node.js, React, Angular e infrastrutture cloud moderne, dall'MVP alla piattaforma in produzione.",
+    highlights: [
+      "System design e architettura tecnica",
+      "Sviluppo full-stack (backend, frontend, API)",
+      "Soluzioni cloud-native e a microservizi",
+      "Code review e quality assurance",
+    ],
+  },
+  {
+    name: "Migrazione di Sistemi Legacy",
+    description:
+      "Modernizza le tue applicazioni datate senza interrompere il business. Esperienza comprovata nella migrazione da MS Access, SharePoint On-Premise e framework .NET monolitici verso architetture moderne e manutenibili.",
+    highlights: [
+      "Assessment e pianificazione della migrazione",
+      "Migrazione incrementale con strategie zero downtime",
+      "Re-platforming verso ambienti web e cloud",
+      "Documentazione e trasferimento delle conoscenze",
+    ],
+  },
+  {
+    name: "Tech Leadership e Mentoring",
+    description:
+      "Team lead e mentor con esperienza consolidata. Dalla pianificazione della roadmap alla guida pratica sul codice, posso coordinare il tuo team tecnico o supportare i lead esistenti aiutando i developer a crescere e i progetti a restare in carreggiata.",
+    highlights: [
+      "Coordinamento del team tecnico e gestione dei task",
+      "Mentoring di figure junior e mid-level",
+      "Facilitazione dei processi Agile e refinement",
+      "Comunicazione con gli stakeholder e i vari team cross-funzionali",
+    ],
+  },
+  {
+    name: "Data Management",
+    description:
+      "Progettazione, manutenzione e ottimizzazione di sistemi dati complessi. Dai grandi data warehouse SQL alle soluzioni NoSQL moderne, garantisco affidabilità e performance al tuo data layer.",
+    highlights: [
+      "Progettazione e manutenzione di data warehouse",
+      "Ottimizzazione SQL e architettura a stored procedure",
+      "MongoDB, PostgreSQL, Redis, SQL Server",
+      "Pipeline di reportistica e normalizzazione dei dati per integrazioni terze",
+    ],
+  },
+];
+
 export const contactData = {
   intro: "Vuoi lavorare insieme? Parliamo del tuo progetto.",
   items: [
@@ -174,6 +222,7 @@ export const sectionTitles = {
   about: "Chi Sono",
   skills: "Competenze",
   experience: "Esperienza",
+  services: "Servizi",
   projects: "Progetti",
   contact: "Contatti",
 };

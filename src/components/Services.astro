@@ -1,0 +1,43 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+
+interface Service {
+  name: string;
+  description: string;
+  highlights: string[];
+}
+
+interface Props {
+  title: string;
+  services: Service[];
+}
+
+const { title, services } = Astro.props;
+---
+
+<section id="services" class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionTitle title={title} />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {
+        services.map((service) => (
+          <div class="bg-bg p-6 rounded-lg border border-border flex flex-col gap-4">
+            <h3 class="font-mono text-base font-semibold text-accent">
+              <span class="text-text-muted"> # </span>
+              {service.name}
+            </h3>
+            <p class="text-text text-sm">{service.description}</p>
+            <ul class="space-y-1 ">
+              {service.highlights.map((item) => (
+                <li class="font-mono text-sm text-green flex gap-2">
+                  <span class="text-purple select-none">›</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
