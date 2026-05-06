@@ -162,6 +162,7 @@ export const servicesData = [
       "Sviluppo full-stack (backend, frontend, API)",
       "Soluzioni cloud-native e a microservizi",
       "Code review e quality assurance",
+      "Soluzioni di sistemi di CI/CD per progetti nuovi o esistenti",
     ],
   },
   {
