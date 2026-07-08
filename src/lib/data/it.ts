@@ -17,7 +17,6 @@ export const heroData = {
   taglines: [
     "10+ anni di esperienza nello sviluppo, la manutenzione e la gestione di applicazioni",
     "disponibile come freelance",
-    "correggo quello che l'AI ha incasinato",
   ],
   ctaContact: { href: "#contact", label: "contatti" },
   ctaDownload: { href: "/nicholaspellizer.pdf", label: "scarica cv" },
@@ -80,12 +79,25 @@ export const skills = [
 
 export const jobs = [
   {
+    company: "Freelance",
+    role: "Senior Full Stack Developer & Solution Architect",
+    period: "01/2026 - Oggi",
+    highlights: [
+      "Healthcare: Sviluppo di applicazioni web su stack **.NET** su misura per le esigenze del cliente, con particolare attenzione alla scalabilità, manutenibilità e performance.",
+      "Formazione: docenza presso EnaipFVG su modulo **SQL** e i database relazionali, **SqlLite** e **PostgreSQL**",
+      "Consulenza tecnica per la progettazione di architetture software, inclusa la scelta delle tecnologie, la definizione dei pattern architetturali e la pianificazione della roadmap di sviluppo.",
+      "LowCode: Sviluppo di applicazioni low-code con **Microsoft PowerApps** per la gestione dei processi aziendali, integrando dati da fonti diverse come **SharePoint**, **SQL Server** e **API REST**.",
+    ],
+  },
+
+  {
     company: "Etiqa Srl",
     role: "Senior Software Developer",
     period: "09/2022 - 01/2026",
     highlights: [
-      "Progettazione e Ricerca (Healthcare): Analizzo e finalizzo l'integrazione con il provider di ricerca **Algolia** per un prodotto di prenotazione prestazioni sanitarie, gestendo la normalizzazione dei dati da database **MongoDB** e backend **NestJS**. Mi occupo di varie integrazioni tra cui **MUX** per gestire una libreria di videolezioni.",
-      "Ambito Welfare: Sviluppo un portale di welfare aziendale con backend in **microservizi NestJS**, frontend in **Vue** e dati su **PostgreSQL**, garantendo la stabilità del sistema sotto picchi di carico superiori alle migliaia di richieste al minuto. Gestisco anche la parte di reportistica garantendo affidabilità e velocità sulle viste interessate.",
+      "Healthcare: Analizzo e finalizzo l'integrazione con il provider di ricerca **Algolia** per un prodotto di prenotazione prestazioni sanitarie, gestendo la normalizzazione dei dati da database **MongoDB** e backend **NestJS**. Mi occupo di varie integrazioni tra cui **MUX** per gestire una libreria di videolezioni.",
+      "Welfare: Sviluppo un portale di welfare aziendale con backend in **microservizi NestJS**, frontend in **Vue** e dati su **PostgreSQL**, garantendo la stabilità del sistema sotto picchi di carico superiori alle migliaia di richieste al minuto. Gestisco anche la parte di reportistica garantendo affidabilità e velocità sulle viste interessate. Mi preoccupo della pipeline di rilascio e della gestione dei rilasci in produzione con **Github Actions** e generazione di immagini **Docker**.",
+      "Testing: Implemento test end-to-end con **Cypress** e unit test con **Jest**, garantendo la qualità del codice e la copertura dei test con strumenti di analisi come **SonarQube** integrati nel processo di **CI/CD** su **Github Actions**. Mi occupo anche dei primi stress test con **Artllery** e **K6s** per garantire la scalabilità del sistema.",
       "Risoluzione Criticità e Scalabilità: Individuato e risolto un collo di bottiglia sulla scalabilità orizzontale causato dai limiti delle connessioni TCP dirette tra **microservizi NestJS**. Ho proposto di riprogettare la comunicazione interna utilizzando un message broker **Kafka** o **NATS**, permettendo al sistema di scalare correttamente su cluster **Kubernetes** (**GCP**).",
       "Analisi e Teamwork: Inserito in un team di sviluppatori senior e middle, mi sono occupato della rifinitura dei task e dell'analisi tecnica per garantire efficienza e qualità in ogni rilascio.",
     ],
@@ -95,12 +107,12 @@ export const jobs = [
     role: "Tech Leader",
     period: "09/2019 - 09/2022",
     highlights: [
-      "Lead di Progetto Internazionale (450+ GG/U): Coordinato un team di 4-6 persone per la migrazione di un sistema critico di problem solving industriale (pattern 5 Why, Ishikawa) da **MS Access** a una moderna architettura **.NET Core WebAPI** con frontend **Angular**.",
-      "Performance Optimization (Global Scale): Ottimizzato le rotte di rete per gli impianti produttivi in Cina, riducendo i tempi di caricamento da 3000ms a 200ms.",
-      "Management & Financial Accountability: Gestito l'assegnazione dei task e il supporto tecnico costante al team, mantenendo la responsabilità dei target finanziari di progetto (marginalità e giornate/uomo) con pieno raggiungimento degli obiettivi.",
-      "Mentoring & Formazione: Responsabile della crescita professionale di diverse figure junior, guidandole dall'onboarding alla piena autonomia tecnica.",
-      "Modernizzazione Applicativa: Orchestrato il passaggio degli applicativi **SharePoint** da infrastrutture On-Premise a **SharePoint Online**, gestendo stakeholder internazionali in Polonia e Finlandia.",
-      "Technical Stack: Sviluppo su ecosistema Microsoft (**ASP.NET MVC**, **.NET Core**) con esteso utilizzo di **Entity Framework** e **MS SQL Server**.",
+      "Team Leader di Progetto Internazionale (450+ GG/U): Coordinato un team di 4-6 persone per la migrazione di un sistema critico di problem solving industriale (pattern 5 Why, Ishikawa) da **MS Access** a una moderna architettura **.NET Core WebAPI** con frontend **Angular**.",
+      "Performance Optimization: Ottimizzato le rotte di rete per gli impianti produttivi in Cina, riducendo i tempi di caricamento da 3000ms a 200ms.",
+      "Project Management: Gestito l'assegnazione dei task e il supporto tecnico costante al team, mantenendo la responsabilità dei target finanziari di progetto (marginalità e giornate/uomo) con pieno raggiungimento degli obiettivi.",
+      "Tutoraggio e formazione: Responsabile della crescita professionale di diverse figure junior, guidandole dall'onboarding alla piena autonomia tecnica.",
+      "Modernizzazione applicativa: Orchestrato il passaggio degli applicativi **SharePoint** da infrastrutture On-Premise a **SharePoint Online**, gestendo stakeholder internazionali in Polonia e Finlandia.",
+      "Stack tecnologico: Sviluppo su ecosistema Microsoft (**.Net Framework e .NET 2+**) con esteso utilizzo di **Entity Framework** e **MS SQL Server**.",
     ],
   },
   {
@@ -108,9 +120,9 @@ export const jobs = [
     role: "Junior & Senior Software Developer",
     period: "05/2014 - 09/2019",
     highlights: [
-      "Data Management (Banca Generali): Gestito e mantenuto un complesso Data Warehouse di Risk Management con dati globali. Responsabile della manutenzione di oltre 500 stored procedure (layer architecture) su un database con volumi di crescita di circa 2GB/giorno.",
-      "Sviluppo Specialistico (Fincantieri): Progettato e sviluppato un plugin in **.NET** per il CAD 3D **MicroStation**, dedicato all'ottimizzazione e alla gestione della stesura dei cavi all'interno delle commesse navali.",
-      "Integrazione & Legacy (AcegasApsAmga): Manutenzione evolutiva di applicativi legacy e implementazione di sistemi di messaggistica asincrona tramite l'integrazione di **RabbitMQ**.",
+      "Banca Generali: Ho gestito e mantenuto un complesso Data Warehouse di Risk Management con dati globali. Responsabile della manutenzione di oltre 500 stored procedure (layer architecture) su un database con volumi di crescita di circa 2GB/giorno.",
+      "Fincantieri: Progettato e sviluppato un plugin in **.NET** per il CAD 3D **MicroStation**, dedicato all'ottimizzazione e alla gestione della stesura dei cavi all'interno delle commesse navali.",
+      "AcegasApsAmga: Manutenzione evolutiva di applicativi legacy e implementazione di sistemi di messaggistica asincrona tramite l'integrazione di **RabbitMQ**.",
       "Full Stack Development: Sviluppo e manutenzione di vari progetti basati su **.NET Framework MVC** e database **MS SQL Server**.",
     ],
   },
