@@ -19,6 +19,15 @@
   --color-orange: #d19a66;
   --color-border: #3e4451;
 
+  /* Atom One Light CV Colors */
+  --color-cv-bg: #fafafa;
+  --color-cv-text: #383a42;
+  --color-cv-muted: #a0a1a7;
+  --color-cv-purple: #a626a4;
+  --color-cv-green: #50a14f;
+  --color-cv-green-dark: #2d6a2c;
+  --color-cv-border: #e5e5e5;
+
   --font-mono: "Fira Code", monospace;
   --font-sans: "Inter", system-ui, sans-serif;
 }

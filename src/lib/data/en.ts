@@ -235,6 +235,10 @@ export const personalInfo = {
   dateOfBirth: "21/04/1992",
   location: "Trieste, Italy",
   nationality: "🇮🇹 Italian",
+  languages: [
+    { name: "Italian", level: "Native" },
+    { name: "English", level: "B1 - Intermediate" },
+  ],
 };
 
 export const cvPage = {

@@ -1,5 +1,7 @@
 // Italian content
 
+import * as c from "./common";
+
 export const navLinks = [
   { href: "#about", label: "chi sono" },
   { href: "#skills", label: "competenze" },
@@ -10,8 +12,7 @@ export const navLinks = [
 ];
 
 export const heroData = {
-  name: "Nicholas Pellizer",
-  role: "Full-Stack Architect & Tech Lead",
+  name: c.personal.name,
   stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
   location: "Full Remote | Trieste, Italia",
   taglines: [
@@ -83,10 +84,8 @@ export const jobs = [
     role: "Senior Full Stack Developer & Solution Architect",
     period: "01/2026 - Oggi",
     highlights: [
-      "Healthcare: Sviluppo di applicazioni web su stack **.NET** su misura per le esigenze del cliente, con particolare attenzione alla scalabilità, manutenibilità e performance.",
-      "Formazione: docenza presso EnaipFVG su modulo **SQL** e i database relazionali, **SqlLite** e **PostgreSQL**",
-      "Consulenza tecnica per la progettazione di architetture software, inclusa la scelta delle tecnologie, la definizione dei pattern architetturali e la pianificazione della roadmap di sviluppo.",
-      "LowCode: Sviluppo di applicazioni low-code con **Microsoft PowerApps** per la gestione dei processi aziendali, integrando dati da fonti diverse come **SharePoint**, **SQL Server** e **API REST**.",
+      "Sviluppo di applicazioni web e desktop su misura, con architetture manutenibili in ecosistema **.NET**.",
+      "Docenza presso EnaipFVG su modulo **SQL** e i database relazionali, **SqlLite** e **PostgreSQL**",
     ],
   },
 
@@ -130,7 +129,7 @@ export const jobs = [
 
 export const projects = [
   {
-    name: "Profilo GitHub",
+    name: "GitHub",
     url: "https://github.com/Guybrush21",
     description: "Se vuoi vedere un po' di codice, questo è il posto giusto.",
   },
@@ -212,20 +211,6 @@ export const servicesData = [
   },
 ];
 
-export const contactData = {
-  intro: "Vuoi lavorare insieme? Parliamo del tuo progetto.",
-  items: [
-    {
-      label: "Email",
-      value: "mail@nicholaspellizer.it",
-      href: "mailto:mail@nicholaspellizer.it",
-    },
-    { label: "Telefono", value: "+39 338 284 8486", href: "tel:+393382848486" },
-    { label: "Località", value: "Trieste, Italia" },
-  ],
-  downloadCv: { href: "/nicholaspellizer.pdf", label: "scarica cv" },
-};
-
 export const footerData = {
   name: "Nicholas Pellizer",
   tagline: "mi piace risolvere problemi e aggiustare cose",
@@ -234,7 +219,7 @@ export const footerData = {
 export const sectionTitles = {
   about: "Chi Sono",
   skills: "Competenze",
-  experience: "Esperienza",
+  experience: "Esperienza lavorativa",
   services: "Servizi",
   projects: "Progetti",
   contact: "Contatti",
@@ -245,10 +230,28 @@ export const ui = {
 };
 
 export const personalInfo = {
-  dateOfBirth: "21/04/1992",
+  ...c.personal,
   location: "Trieste, Italia",
-  nationality: "🇮🇹 Italiano",
+  nationality: " Italiano",
   bio: "Sviluppatore full stack con oltre 10 anni di esperienza nella progettazione, lo sviluppo e la manutenzione di architetture software complesse su stack Microsoft .NET e Node.js. Con esperienza nella gestione di team, analisi dei requisiti e mentoring di figure junior. Appassionato di DevOps e ottimizzazione dei processi di sviluppo.",
+  languages: [
+    { name: "Italiano", level: "Madrelingua" },
+    { name: "Inglese", level: "B1 - Intermedio" },
+  ],
+};
+
+export const contactData = {
+  intro: "Vuoi lavorare insieme? Parliamo del tuo progetto.",
+  items: [
+    {
+      label: "Email",
+      value: c.personal.email,
+      href: "mailto:mail@nicholaspellizer.it",
+    },
+    { label: "Telefono", value: "+39 338 284 8486", href: "tel:+393382848486" },
+    { label: "Località", value: "Trieste, Italia" },
+  ],
+  downloadCv: { href: "/nicholaspellizer.pdf", label: "scarica cv" },
 };
 
 export const cvPage = {
