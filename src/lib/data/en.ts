@@ -231,6 +231,12 @@ export const ui = {
   visitSite: "Visit site",
 };
 
+export const personalInfo = {
+  dateOfBirth: "21/04/1992",
+  location: "Trieste, Italy",
+  nationality: "🇮🇹 Italian",
+};
+
 export const cvPage = {
   title: "Curriculum Vitae",
   printButton: "Print CV",

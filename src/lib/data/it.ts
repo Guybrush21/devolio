@@ -244,6 +244,13 @@ export const ui = {
   visitSite: "Visita sito",
 };
 
+export const personalInfo = {
+  dateOfBirth: "21/04/1992",
+  location: "Trieste, Italia",
+  nationality: "🇮🇹 Italiano",
+  bio: "Sviluppatore full stack con oltre 10 anni di esperienza nella progettazione, lo sviluppo e la manutenzione di architetture software complesse su stack Microsoft .NET e Node.js. Con esperienza nella gestione di team, analisi dei requisiti e mentoring di figure junior. Appassionato di DevOps e ottimizzazione dei processi di sviluppo.",
+};
+
 export const cvPage = {
   title: "Curriculum Vitae",
   printButton: "Stampa CV",

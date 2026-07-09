@@ -3,6 +3,15 @@ import { languages, isValidLang, type Language } from "../../lib/i18n";
 import * as itData from "../../lib/data/it";
 import * as enData from "../../lib/data/en";
 import { parseMarkdown } from "../../lib/markdown";
+import {
+  Mail,
+  Phone,
+  Globe,
+  MapPin,
+  Calendar,
+  Flag,
+  GitBranch,
+} from "@lucide/astro";
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -17,14 +26,20 @@ if (!isValidLang(lang)) {
 const data = lang === "it" ? itData : enData;
 const alternateLang = lang === "it" ? "en" : "it";
 
-// Separate technical skills from soft skills and languages
-const technicalSkills = data.skills.filter(
-  (s) => !["Non_tech", "Linguaggi", "Languages"].includes(s.category),
-);
-const softSkills = data.skills.find((s) => s.category === "Non_tech");
-const languageSkills = data.skills.find(
-  (s) => s.category === "Linguaggi" || s.category === "Languages",
-);
+// Calculate age from DOB
+function calculateAge(dobString: string): number {
+  const [day, month, year] = dobString.split("/").map(Number);
+  const dob = new Date(year, month - 1, day);
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const monthDiff = today.getMonth() - dob.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
+  return age;
+}
+
+const age = calculateAge(data.personalInfo.dateOfBirth);
 
 const baseUrl = "https://www.nicholaspellizer.it";
 ---
@@ -44,7 +59,7 @@ const baseUrl = "https://www.nicholaspellizer.it";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -52,448 +67,244 @@ const baseUrl = "https://www.nicholaspellizer.it";
     <link rel="alternate" hreflang="en" href={`${baseUrl}/en/cv`} />
     <link rel="canonical" href={`${baseUrl}/${lang}/cv`} />
 
-    <style>
-      :root {
-        --color-primary: #2563eb;
-        --color-text: #1f2937;
-        --color-text-muted: #6b7280;
-        --color-border: #e5e7eb;
-        --color-bg: #ffffff;
-        --color-bg-subtle: #f9fafb;
-      }
+    <style is:global>
+      @import "tailwindcss";
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      @theme {
+        --color-cv-bg: #fafafa;
+        --color-cv-text: #383a42;
+        --color-cv-muted: #a0a1a7;
+        --color-cv-purple: #a626a4;
+        --color-cv-green: #50a14f;
+        --color-cv-green-dark: #2d6a2c;
+        --color-cv-border: #e5e5e5;
+
+        --font-mono: "Fira Code", "Consolas", "Monaco", monospace;
+        --font-sans: "Inter", system-ui, sans-serif;
       }
 
       body {
-        font-family:
-          "Inter",
-          system-ui,
-          -apple-system,
-          sans-serif;
-        color: var(--color-text);
-        background: var(--color-bg);
-        line-height: 1.5;
-        font-size: 11pt;
+        font-family: var(--font-sans);
+        background: var(--color-cv-bg);
+        color: var(--color-cv-text);
+        font-size: 10pt;
+        line-height: 1.4;
       }
 
-      .print-controls {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        display: flex;
-        gap: 0.5rem;
-        z-index: 100;
-      }
-
-      .print-controls a,
-      .print-controls button {
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s;
-      }
-
-      .btn-primary {
-        background: var(--color-primary);
-        color: white;
-        border: none;
-      }
-
-      .btn-primary:hover {
-        background: #1d4ed8;
-      }
-
-      .btn-secondary {
-        background: var(--color-bg);
-        color: var(--color-text);
-        border: 1px solid var(--color-border);
-      }
-
-      .btn-secondary:hover {
-        background: var(--color-bg-subtle);
-      }
-
-      .cv-container {
-        max-width: 210mm;
-        margin: 0 auto;
-        padding: 2rem;
-        background: var(--color-bg);
-      }
-
-      /* Header */
-      .cv-header {
-        border-bottom: 2px solid var(--color-primary);
-        padding-bottom: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .cv-name {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--color-text);
-        margin-bottom: 0.25rem;
-      }
-
-      .cv-role {
-        font-size: 1.25rem;
-        color: var(--color-primary);
-        font-weight: 500;
-        margin-bottom: 1rem;
-      }
-
-      .cv-contact {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        font-size: 0.875rem;
-        color: var(--color-text-muted);
-      }
-
-      .cv-contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.375rem;
-      }
-
-      .cv-contact a {
-        color: var(--color-text-muted);
-        text-decoration: none;
-      }
-
-      .cv-contact a:hover {
-        color: var(--color-primary);
-      }
-
-      /* Sections */
-      .cv-section {
-        margin-bottom: 1.5rem;
-      }
-
-      .cv-section-title {
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--color-primary);
-        border-bottom: 1px solid var(--color-border);
-        padding-bottom: 0.375rem;
-        margin-bottom: 0.75rem;
-      }
-
-      /* Summary */
-      .cv-summary p {
-        color: var(--color-text);
-        font-size: 0.9375rem;
-      }
-
-      /* Experience */
-      .cv-job {
-        margin-bottom: 1rem;
-      }
-
-      .cv-job:last-child {
-        margin-bottom: 0;
-      }
-
-      .cv-job-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .cv-job-title {
-        font-weight: 600;
-        color: var(--color-text);
-      }
-
-      .cv-job-period {
-        font-size: 0.875rem;
-        color: var(--color-text-muted);
-        white-space: nowrap;
-      }
-
-      .cv-job-company {
-        font-size: 0.9375rem;
-        color: var(--color-text-muted);
-        margin-bottom: 0.25rem;
-      }
-
-      .cv-job-description {
-        font-size: 0.875rem;
-        color: var(--color-text);
-      }
-
-      .cv-job-highlights {
-        margin-top: 0.375rem;
-        padding-left: 1.25rem;
-        font-size: 0.8125rem;
-        color: var(--color-text);
-      }
-
-      .cv-job-highlights li {
-        margin-bottom: 0.125rem;
-      }
-
-      /* Skills */
-      .cv-skills-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-      }
-
-      .cv-skill-category {
-        margin-bottom: 0.5rem;
-      }
-
-      .cv-skill-category-name {
-        font-weight: 600;
-        font-size: 0.875rem;
-        color: var(--color-text);
-        margin-bottom: 0.125rem;
-      }
-
-      .cv-skill-items {
-        font-size: 0.875rem;
-        color: var(--color-text-muted);
-      }
-
-      /* Two column layout */
-      .cv-two-columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-      }
-
-      /* Links */
-      .cv-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 1.5rem;
-        font-size: 0.875rem;
-      }
-
-      .cv-link {
-        color: var(--color-primary);
-        text-decoration: none;
-      }
-
-      .cv-link:hover {
-        text-decoration: underline;
-      }
-
-      /* Print styles */
+      /* Print optimizations */
       @media print {
-        .print-controls {
-          display: none !important;
+        @theme {
+          --color-cv-text: #000000;
+          --color-cv-muted: #4a4a4a;
+          --color-cv-purple: #7c3aed;
+          --color-cv-green: #16a34a;
+          --color-cv-green-dark: #15803d;
+          --color-cv-border: #d1d5db;
         }
 
         body {
-          font-size: 10pt;
+          font-size: 9.5pt;
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
         }
 
-        .cv-container {
-          padding: 0;
-          max-width: none;
-        }
-
-        .cv-header {
-          padding-bottom: 1rem;
-          margin-bottom: 1rem;
-        }
-
-        .cv-name {
-          font-size: 1.75rem;
-        }
-
-        .cv-role {
-          font-size: 1.125rem;
-        }
-
-        .cv-section {
-          margin-bottom: 1rem;
-        }
-
-        .cv-section-title {
-          font-size: 0.75rem;
-        }
-
-        .cv-job {
-          margin-bottom: 0.75rem;
-        }
-
         @page {
-          margin: 15mm;
+          margin: 12mm;
           size: A4;
-        }
-      }
-
-      /* Responsive */
-      @media (max-width: 640px) {
-        .cv-container {
-          padding: 1rem;
-        }
-
-        .cv-two-columns {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-        }
-
-        .cv-skills-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .cv-contact {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-
-        .print-controls {
-          position: static;
-          justify-content: center;
-          padding: 1rem;
-          background: var(--color-bg-subtle);
-          border-bottom: 1px solid var(--color-border);
         }
       }
     </style>
   </head>
   <body>
-    <div class="print-controls">
-      <a href={`/${lang}/`} class="btn-secondary">{data.cvPage.backToSite}</a>
-      <a href={`/${alternateLang}/cv`} class="btn-secondary"
-        >{alternateLang.toUpperCase()}</a
+    <div class="flex justify-center w-full gap-2 print:hidden">
+      <a
+        href={`/${lang}/`}
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-[--color-cv-bg] text-[--color-cv-text] border-2 border-[--color-cv-border] hover:bg-[--color-cv-border] transition"
       >
-      <button onclick="window.print()" class="btn-primary"
-        >{data.cvPage.printButton}</button
+        {data.cvPage.backToSite}
+      </a>
+      <a
+        href={`/${alternateLang}/cv`}
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-[--color-cv-bg] text-[--color-cv-text] border-2 border-[--color-cv-border] hover:bg-[--color-cv-border] transition"
       >
+        {alternateLang.toUpperCase()}
+      </a>
+      <button
+        onclick="window.print()"
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-[--color-cv-bg] text-[--color-cv-text] border-2 border-[--color-cv-border] hover:bg-[--color-cv-border] transition"
+      >
+        {data.cvPage.printButton}
+      </button>
     </div>
 
-    <div class="cv-container">
-      <!-- Header -->
-      <header class="cv-header">
-        <h1 class="cv-name">{data.heroData.name}</h1>
-        <p class="cv-role">{data.heroData.role}</p>
-        <div class="cv-contact">
-          {
-            data.contactData.items.map((item) => (
-              <span class="cv-contact-item">
-                {item.href ? (
-                  <a href={item.href}>{item.value}</a>
-                ) : (
-                  <span>{item.value}</span>
-                )}
-              </span>
-            ))
-          }
-          <span class="cv-contact-item">
-            <a href="https://github.com/Guybrush21">github.com/Guybrush21</a>
-          </span>
-          <span class="cv-contact-item">
-            <a href="https://nicholaspellizer.it">nicholaspellizer.it</a>
-          </span>
+    <div class="max-w-[210mm] mx-auto p-8 bg-[--color-cv-bg]">
+      <header
+        class="flex justify-between gap-6 border-b-4 border-dotted border-[--color-cv-purple] font-mono pb-3 mb-4"
+      >
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl font-bold text-[--color-cv-text] mb-1">
+            {data.heroData.name}
+          </h1>
+          <p
+            class="font-mono text-base text-[--color-cv-purple] font-medium mb-3"
+          >
+            {data.heroData.role}
+          </p>
+
+          <div
+            class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[--color-cv-text]"
+          >
+            {
+              data.contactData.items.map((item) => {
+                if (item.label === "Email" || item.label === "📧") {
+                  return (
+                    <>
+                      <div class="flex items-center gap-1.5">
+                        <Mail class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            class="hover:text-[--color-cv-green] transition"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span>{item.value}</span>
+                        )}
+                      </div>
+                      <span class="text-[--color-cv-muted]">|</span>
+                    </>
+                  );
+                }
+                if (
+                  item.label === "Phone" ||
+                  item.label === "📱" ||
+                  item.label === "Telefono"
+                ) {
+                  return (
+                    <>
+                      <div class="flex items-center gap-1.5">
+                        <Phone class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            class="hover:text-[--color-cv-green] transition"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span>{item.value}</span>
+                        )}
+                      </div>
+                      <span class="text-[--color-cv-muted]">|</span>
+                    </>
+                  );
+                }
+                return null;
+              })
+            }
+
+            <div class="flex items-center gap-1.5">
+              <MapPin class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+              <span>{data.personalInfo.location}</span>
+            </div>
+            <span class="text-[--color-cv-muted]">|</span>
+
+            <div class="flex items-center gap-1.5">
+              <Calendar class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+              <span
+                >{data.personalInfo.dateOfBirth} ({age}
+                {lang === "it" ? "anni" : "years"})</span
+              >
+            </div>
+            <span class="text-[--color-cv-muted]">|</span>
+
+            <div class="flex items-center gap-1.5">
+              <Flag class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+              <span>{data.personalInfo.nationality}</span>
+            </div>
+            <span class="text-[--color-cv-muted]">|</span>
+
+            <div class="flex items-center gap-1.5">
+              <GitBranch class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+              <a
+                href="https://github.com/Guybrush21"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-[--color-cv-green] transition"
+              >
+                github.com/Guybrush21
+              </a>
+            </div>
+            <span class="text-[--color-cv-muted]">|</span>
+
+            <div class="flex items-center gap-1.5">
+              <Globe class="w-4 h-4 text-[--color-cv-green] shrink-0" />
+              <a
+                href="https://nicholaspellizer.it"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-[--color-cv-green] transition"
+              >
+                nicholaspellizer.it
+              </a>
+            </div>
+          </div>
         </div>
+
+        <picture>
+          <source srcset="/me.webp" type="image/webp" />
+          <img
+            src="/me.jpg"
+            alt={data.heroData.name}
+            class="w-[150px] h-[150px] rounded-lg border-2 border-[--color-cv-green] shadow-md shrink-0 object-cover"
+            loading="eager"
+          />
+        </picture>
       </header>
 
-      <!-- Summary -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">{data.cvPage.summary}</h2>
-        <div class="cv-summary">
-          <p>{data.aboutData.paragraphs[0]}</p>
-        </div>
+      <section class="mb-4">
+        <h2
+          class="font-mono text-sm font-semibold text-[--color-cv-purple] uppercase tracking-wide border-b border-[--color-cv-border] pb-2 mb-2"
+        >
+          // {data.cvPage.summary}
+        </h2>
+        <p class="text-sm leading-snug text-[--color-cv-text]">
+          {data.personalInfo.bio}
+        </p>
       </section>
 
-      <!-- Experience -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">{data.sectionTitles.experience}</h2>
+      <section class="mb-4">
+        <h2
+          class="font-mono text-sm font-semibold text-[--color-cv-purple] uppercase tracking-wide border-b border-[--color-cv-border] pb-2 mb-2"
+        >
+          // {data.sectionTitles.experience}
+        </h2>
         {
           data.jobs.map((job) => (
-            <div class="cv-job">
-              <div class="cv-job-header">
-                <span class="cv-job-title">{job.role}</span>
-                <span class="cv-job-period">{job.period}</span>
+            <div class="mb-3">
+              <div class="flex justify-between items-baseline mb-0.5">
+                <div class="font-mono text-sm">
+                  <span class=" font-semibold text-[--color-cv-purple]">
+                    {job.role}
+                  </span>
+                  <span> @ {job.company}</span>
+                </div>
+                <span class="font-mono text-sm text-[--color-cv-muted] whitespace-nowrap">
+                  {job.period}
+                </span>
               </div>
-              <p class="cv-job-company">{job.company}</p>
-              <ul class="cv-job-highlights">
+              <ul class="list-disc pl-4 space-y-0.5">
                 {job.highlights.map((highlight) => (
-                  <li set:html={parseMarkdown(highlight)} />
+                  <li
+                    class="text-xs leading-snug text-[--color-cv-text]"
+                    set:html={parseMarkdown(highlight)}
+                  />
                 ))}
               </ul>
             </div>
           ))
         }
-      </section>
-
-      <!-- Technical Skills -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">{data.cvPage.technicalSkills}</h2>
-        <div class="cv-skills-grid">
-          {
-            technicalSkills.map((skill) => (
-              <div class="cv-skill-category">
-                <span class="cv-skill-category-name">{skill.category}:</span>
-                <span class="cv-skill-items">{skill.items.join(", ")}</span>
-              </div>
-            ))
-          }
-        </div>
-      </section>
-
-      <!-- Two column section: Soft Skills + Languages -->
-      <div class="cv-two-columns">
-        {
-          softSkills && (
-            <section class="cv-section">
-              <h2 class="cv-section-title">{data.cvPage.softSkills}</h2>
-              <p class="cv-skill-items">{softSkills.items.join(", ")}</p>
-            </section>
-          )
-        }
-
-        {
-          languageSkills && (
-            <section class="cv-section">
-              <h2 class="cv-section-title">{data.cvPage.languages}</h2>
-              <p class="cv-skill-items">
-                {languageSkills.items
-                  .filter((l) =>
-                    ["Italiano", "Italian", "Inglese", "English"].includes(l),
-                  )
-                  .join(", ")}
-              </p>
-            </section>
-          )
-        }
-      </div>
-
-      <!-- Links / Projects -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">{data.cvPage.links}</h2>
-        <div class="cv-links">
-          {
-            data.projects.slice(0, 4).map((project) => (
-              <a
-                href={project.url}
-                class="cv-link"
-                target="_blank"
-                rel="noopener"
-              >
-                {project.name}
-              </a>
-            ))
-          }
-        </div>
       </section>
     </div>
   </body>
