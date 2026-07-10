@@ -80,38 +80,98 @@ export const skills = [
 
 export const jobs = [
   {
+    company: "Freelance",
+    role: "Senior Full Stack Developer & Solution Architect",
+    period: "01/2026 - Present",
+    summary:
+      "Custom web and desktop application development with maintainable architectures. Teaching SQL and relational databases at EnaipFVG.",
+    stack: [".NET", "SQL", "PostgreSQL", "SQLite"],
+    highlights: [
+      "Custom web and desktop applications in .NET ecosystem",
+      "Teaching SQL and relational databases at EnaipFVG",
+    ],
+  },
+
+  {
     company: "Etiqa Srl",
     role: "Senior Software Developer",
     period: "09/2022 - 01/2026",
+    summary:
+      "Development of Healthcare and Welfare platforms based on microservices architecture.",
+    stack: [
+      "Node.js",
+      "NestJS",
+      "TypeScript",
+      "Vue",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+      "Github Actions",
+      "Kubernetes",
+      "GCP",
+      "Cypress",
+      "Jest",
+      "Artillery",
+      "K6s",
+      "SonarQube",
+      "Kafka",
+      "NATS",
+    ],
     highlights: [
-      "Design & Research (Healthcare): Analyzed and finalized integration with **Algolia** search provider for a healthcare booking product, managing data normalization from **MongoDB** database and **NestJS** backend. Handled various integrations including **MUX** for managing a video lesson library.",
-      "Welfare Scope: Developed a corporate welfare portal with **NestJS microservices** backend, **Vue** frontend and **PostgreSQL** data, ensuring system stability under load peaks exceeding thousands of requests per minute. Also managed reporting ensuring reliability and speed on affected views.",
-      "Critical Issue Resolution & Scalability: Identified and resolved a horizontal scalability bottleneck caused by TCP connection limits between **NestJS microservices**. Proposed redesigning internal communication using **Kafka** or **NATS** message broker, allowing the system to scale correctly on **Kubernetes** clusters (**GCP**).",
-      "Analysis & Teamwork: Working in a team of senior and middle developers, handled task refinement and technical analysis to ensure efficiency and quality in every release.",
+      "Designed **Algolia** integration for healthcare service search",
+      "Implemented video library through **MUX** integration",
+      "Built CI/CD pipeline with **Github Actions** and **Docker**",
+      "Introduced end-to-end, unit, and stress testing",
+      "Eliminated microservices communication bottleneck by redesigning with **Kafka/NATS**",
+    ],
+    achievements: [
+      "Stable system under thousands of requests per minute",
+      "Horizontal scalability achieved on **Kubernetes GCP** cluster",
     ],
   },
   {
     company: "Gruppo Euris S.P.A.",
     role: "Tech Leader",
     period: "09/2019 - 09/2022",
+    summary:
+      "Team leader for international project migrating critical industrial problem-solving systems.",
+    stack: [
+      ".NET Core",
+      "Angular",
+      "Entity Framework",
+      "MS SQL Server",
+      "SharePoint",
+      "SharePoint Online",
+    ],
     highlights: [
-      "International Project Lead (450+ person-days): Coordinated a team of 4-6 people for the migration of a critical industrial problem-solving system (5 Why, Ishikawa patterns) from **MS Access** to a modern **.NET Core WebAPI** architecture with **Angular** frontend.",
-      "Performance Optimization (Global Scale): Optimized network routes for production plants in China, reducing load times from 3000ms to 200ms.",
-      "Management & Financial Accountability: Managed task assignment and constant technical support to the team, maintaining responsibility for project financial targets (margins and person-days) with full achievement of objectives.",
-      "Mentoring & Training: Responsible for the professional growth of several junior developers, guiding them from onboarding to full technical autonomy.",
-      "Application Modernization: Orchestrated the transition of **SharePoint** applications from On-Premise infrastructure to **SharePoint Online**, managing international stakeholders in Poland and Finland.",
-      "Technical Stack: Development on Microsoft ecosystem (**ASP.NET MVC**, **.NET Core**) with extensive use of **Entity Framework** and **MS SQL Server**.",
+      "Coordinated 4-6 person team for migration from **MS Access** to **.NET Core + Angular**",
+      "Optimized network routes for China plants: from 3000ms to 200ms",
+      "Managed international stakeholders (Poland, Finland) for **SharePoint Online** migration",
+      "Mentored junior developers from onboarding to full autonomy",
+    ],
+    achievements: [
+      "450+ person-days project completed with full financial targets achieved",
+      "Multiple junior developers grown to full autonomy",
     ],
   },
   {
     company: "Gruppo Euris S.P.A.",
     role: "Junior & Senior Software Developer",
     period: "05/2014 - 09/2019",
+    summary:
+      "Development and maintenance of enterprise applications on Microsoft ecosystem.",
+    stack: [
+      ".NET Framework",
+      "MVC",
+      "MS SQL Server",
+      "Entity Framework",
+      "MicroStation",
+      "RabbitMQ",
+    ],
     highlights: [
-      "Data Management (Banca Generali): Managed and maintained a complex Risk Management Data Warehouse with global data. Responsible for maintaining over 500 stored procedures (layer architecture) on a database with growth volumes of approximately 2GB/day.",
-      "Specialized Development (Fincantieri): Designed and developed a **.NET** plugin for **MicroStation 3D CAD**, dedicated to optimization and management of cable routing within naval contracts.",
-      "Integration & Legacy (AcegasApsAmga): Evolutionary maintenance of legacy applications and implementation of asynchronous messaging systems through **RabbitMQ** integration.",
-      "Full Stack Development: Development and maintenance of various projects based on **.NET Framework MVC** and **MS SQL Server** database.",
+      "**Banca Generali**: Managed Risk Management Data Warehouse with 500+ stored procedures, 2GB/day growth",
+      "**Fincantieri**: Developed **.NET** plugin for **MicroStation** 3D CAD for naval cable management",
+      "**AcegasApsAmga**: Integrated asynchronous messaging with **RabbitMQ**",
     ],
   },
 ];
@@ -232,9 +292,14 @@ export const ui = {
 };
 
 export const personalInfo = {
+  name: "Nicholas Pellizer",
+  role: "Full-Stack Architect & Tech Lead",
+  email: "mail@nicholaspellizer.it",
+  phone: "+39 338 284 8486",
   dateOfBirth: "21/04/1992",
   location: "Trieste, Italy",
   nationality: "🇮🇹 Italian",
+  bio: "Full-stack developer with over 10 years of experience in designing, developing and maintaining complex software architectures on Microsoft .NET and Node.js stacks. Experienced in team management, requirements analysis and mentoring junior developers. Passionate about DevOps and development process optimization.",
   languages: [
     { name: "Italian", level: "Native" },
     { name: "English", level: "B1 - Intermediate" },
@@ -272,6 +337,7 @@ export const cvPage = {
   languages: "Languages",
   links: "Links",
   otherActivities: "Other Activities",
+  achievements: "Achievements",
 };
 
 export const techLabels = {
