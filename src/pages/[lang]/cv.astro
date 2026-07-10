@@ -3,6 +3,7 @@ import "../../styles/global.css";
 import { languages, isValidLang, type Language } from "../../lib/i18n";
 import * as itData from "../../lib/data/it";
 import * as enData from "../../lib/data/en";
+import { technologies } from "../../lib/data/common";
 import { parseMarkdown } from "../../lib/markdown";
 import {
   Mail,
@@ -12,7 +13,6 @@ import {
   Calendar,
   Flag,
   GitBranch,
-  GitFork,
 } from "@lucide/astro";
 
 export function getStaticPaths() {
@@ -94,7 +94,7 @@ const baseUrl = "https://www.nicholaspellizer.it";
 
     <div class="max-w-[210mm] mx-auto p-8 bg-cv-bg">
       <header
-        class="flex justify-between gap-6 border-b-4 border-b-6 border-dotted border-cv-purple font-mono pb-2 m-4"
+        class="flex justify-between gap-6 border-b-6 border-dotted border-cv-purple font-mono pb-2 m-4"
       >
         <div class="flex-1 min-w-0">
           <h1 class="text-2xl font-bold text-cv-text mb-1">
@@ -105,7 +105,7 @@ const baseUrl = "https://www.nicholaspellizer.it";
           </p>
 
           <div
-            class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-cv-text"
+            class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-cv-text justify-between"
           >
             <div class="flex items-center gap-1.5">
               <Phone class="w-4 h-4 text-cv-green shrink-0" />
@@ -234,6 +234,81 @@ const baseUrl = "https://www.nicholaspellizer.it";
               </div>
             ))
           }
+        </div>
+      </section>
+
+      <section class="p-4 break-inside-avoid">
+        <h2
+          class="font-mono text-sm font-semibold text-cv-purple uppercase tracking-wide border-b border-cv-border pb-2 mb-2"
+        >
+          // {data.techLabels.techStack}
+        </h2>
+        <div
+          class="grid grid-cols-2 grid-flow-dense gap-x-6 gap-y-2 text-xs font-mono"
+        >
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.languages}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.languages.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.backend}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.backend.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.frontend}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.frontend.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.data}:</span
+            >
+            <span class="ml-1 text-cv-text">{technologies.data.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.devopsAndCloud}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.devopsAndCloud.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.testingAndQuality}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.testingAndQuality.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.tools}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.tools.join(", ")}</span
+            >
+          </div>
+          <div>
+            <span class="font-semibold text-cv-green"
+              >{data.techLabels.others}:</span
+            >
+            <span class="ml-1 text-cv-text"
+              >{technologies.others.join(", ")}</span
+            >
+          </div>
         </div>
       </section>
     </div>

@@ -264,3 +264,15 @@ export const cvPage = {
   languages: "Lingue",
   links: "Link",
 };
+
+export const techLabels = {
+  languages: "Linguaggi",
+  backend: "Backend",
+  frontend: "Frontend",
+  data: "Database & ORM",
+  devopsAndCloud: "DevOps & Cloud",
+  testingAndQuality: "Testing & Quality",
+  others: "Altri",
+  techStack: "Stack Tecnologico",
+  tools: "Tools",
+};

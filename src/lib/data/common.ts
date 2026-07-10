@@ -9,20 +9,15 @@ export const personal = {
 export const technologies = {
   languages: ["C#", "SQL", "TypeScript/Javascript", "GraphQL", "Bash"],
   backend: [".NET", ".NET Core", ".NET Framework", "Node.js", "NestJS"],
-  frontend: [
-    "Vue",
-    "Angular",
-    "React",
-    "Microsoft PowerApps (LowCode)",
-    "SharePoint / SharePoint Online",
-  ],
+  frontend: ["Vue", "Angular", "React", "TailwindCSS"],
   data: [
     "MS SQL Server",
     "PostgreSQL",
     "MongoDB",
-    "SQLite",
     "Entity Framework",
-    "Stored Procedures",
+    "SQLite",
+    "Spark",
+    "Snowflake",
   ],
   devopsAndCloud: [
     "Docker",
@@ -41,5 +36,14 @@ export const technologies = {
     "K6s",
     "SonarQube",
   ],
-  others: ["Kafka", "NATS", "RabbitMQ", "API REST"],
+  others: [
+    "Kafka",
+    "NATS",
+    "SharePoint",
+    "RabbitMQ",
+    "API REST",
+    "GraphQL",
+    "WebSockets",
+  ],
+  tools: ["Git", "Nvim", "OpenCode", "VsCode", "Jira", "Figma"],
 };
