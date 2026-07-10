@@ -29,6 +29,8 @@ const data = lang === "it" ? itData : enData;
 const alternateLang = lang === "it" ? "en" : "it";
 
 const baseUrl = "https://www.nicholaspellizer.it";
+
+const enablePic = false;
 ---
 
 <!doctype html>
@@ -68,6 +70,16 @@ const baseUrl = "https://www.nicholaspellizer.it";
         }
       }
     </style>
+    <script>
+      function togglePic() {
+        console.log("toggle");
+        document.querySelector("#me-picture").classList.toggle("hidden");
+      }
+
+      document
+        .querySelector("#togglePicButton")
+        .addEventListener("click", togglePic);
+    </script>
   </head>
 
   <body class="bg-cv-bg text-cv-text text-[10pt] leading-snug">
@@ -89,6 +101,12 @@ const baseUrl = "https://www.nicholaspellizer.it";
         class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-green text-white hover:opacity-90 transition"
       >
         {data.cvPage.printButton}
+      </button>
+      <button
+        id="togglePicButton"
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-green text-white hover:opacity-90 transition"
+      >
+        Toggle Pic
       </button>
     </div>
 
@@ -163,16 +181,15 @@ const baseUrl = "https://www.nicholaspellizer.it";
             </div>
           </div>
         </div>
-
-        <!-- <picture> -->
-        <!--   <source srcset="/me.webp" type="image/webp" /> -->
-        <!--   <img -->
-        <!--     src="/me.jpg" -->
-        <!--     alt={data.heroData.name} -->
-        <!--     class="w-[150px] h-[150px] rounded-lg border-2 border-cv-green shadow-md shrink-0 object-cover" -->
-        <!--     loading="eager" -->
-        <!--   /> -->
-        <!-- </picture> -->
+        <picture id="me-picture" class="hidden">
+          <source srcset="/me.webp" type="image/webp" />
+          <img
+            src="/me.jpg"
+            alt={data.heroData.name}
+            class="w-[150px] h-[150px] rounded-lg border-2 border-cv-green shadow-md shrink-0 object-cover"
+            loading="eager"
+          />
+        </picture>
       </header>
 
       <section class="p-4">
@@ -217,6 +234,45 @@ const baseUrl = "https://www.nicholaspellizer.it";
         }
       </section>
 
+      <section class="p-4">
+        <h2
+          class="font-mono text-sm font-semibold text-cv-purple uppercase tracking-wide border-b border-cv-border pb-2 mb-2"
+        >
+          // {data.cvPage.otherActivities}
+        </h2>
+        {
+          data.otherActivities.map((activity) => (
+            <div class="mb-3">
+              <div class="flex justify-between items-baseline mb-0.5">
+                <div class="font-mono text-sm">
+                  <span class="font-semibold text-cv-purple">
+                    {activity.role}
+                  </span>
+                  <span class="text-cv-text"> @ {activity.title}</span>
+                </div>
+                <span class="font-mono text-sm text-cv-muted whitespace-nowrap">
+                  {activity.period}
+                </span>
+              </div>
+              <p class="text-xs leading-snug text-cv-text mb-1">
+                {activity.description}
+              </p>
+              {activity.link && (
+                <p class="text-xs">
+                  <a
+                    href={activity.link.url}
+                    class="text-cv-green hover:underline font-mono"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {activity.link.label}
+                  </a>
+                </p>
+              )}
+            </div>
+          ))
+        }
+      </section>
       <section class="p-4">
         <h2
           class="font-mono text-sm font-semibold text-cv-purple uppercase border-b border-cv-border pb-2 mb-2"

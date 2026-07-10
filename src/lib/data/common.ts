@@ -9,7 +9,7 @@ export const personal = {
 export const technologies = {
   languages: ["C#", "SQL", "TypeScript/Javascript", "GraphQL", "Bash"],
   backend: [".NET", ".NET Core", ".NET Framework", "Node.js", "NestJS"],
-  frontend: ["Vue", "Angular", "React", "TailwindCSS"],
+  frontend: ["Vue", "Angular", "React", "TailwindCSS", "Bootstrap", "CSS3"],
   data: [
     "MS SQL Server",
     "PostgreSQL",
@@ -45,5 +45,15 @@ export const technologies = {
     "GraphQL",
     "WebSockets",
   ],
-  tools: ["Git", "Nvim", "OpenCode", "VsCode", "Jira", "Figma"],
+  tools: [
+    "Git",
+    "Nvim",
+    "OpenCode",
+    "Tmux",
+    "VsCode",
+    "Jira",
+    "Figma",
+    "ServiceNow",
+    "Notion",
+  ],
 };

@@ -254,6 +254,27 @@ export const contactData = {
   downloadCv: { href: "/nicholaspellizer.pdf", label: "scarica cv" },
 };
 
+export const otherActivities = [
+  {
+    title: "Oggi fa bora",
+    role: "Co-founder, Podcaster & Audio Engineer",
+    period: "03/2025 - Attuale",
+    description:
+      "Soddisfatti della prima esperienza come autori di podcast, io e la mia collaboratrice in Decadi creiamo Oggi fa bora: un podcast per raccontare le varie realtà che ruotano attorno alla città di Trieste. Oltre a prestare ovviamente la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
+    link: {
+      url: "https://oggifabora.it",
+      label: "oggifabora.it",
+    },
+  },
+  {
+    title: "Azione Cattolica Trieste",
+    role: "Vicepresidente",
+    period: "02/2017 - 02/2024",
+    description:
+      "Ho ricoperto la carica di vicepresidente del Settore Giovani per due mandati consecutivi. Siedo nei rispettivi organi di Consiglio e Presidenza. Mi sono fatto carico dell'organizzazione di attività di aggregazione sociale e di interesse culturale per i giovani. Assieme all'equipe abbiamo ideato nuove soluzioni per mettere in rete gli educatori della diocesi. Il secondo triennio è segnato dalla pandemia Covid-19, un periodo che ci ha costretto a ripensare e reinventare metodi e tempi di partecipazione alla vita associativa.",
+  },
+];
+
 export const cvPage = {
   title: "Curriculum Vitae",
   printButton: "Stampa CV",
@@ -263,6 +284,7 @@ export const cvPage = {
   softSkills: "Soft Skills",
   languages: "Lingue",
   links: "Link",
+  otherActivities: "Altre Attività",
 };
 
 export const techLabels = {
