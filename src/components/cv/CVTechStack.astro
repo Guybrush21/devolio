@@ -1,0 +1,38 @@
+---
+interface Props {
+  technologies: Record<string, string[]>;
+  labels: Record<string, string>;
+}
+
+const { technologies, labels } = Astro.props;
+
+const categoryOrder = [
+  "languages",
+  "backend",
+  "frontend",
+  "data",
+  "devopsAndCloud",
+  "testingAndQuality",
+  "tools",
+  "others",
+];
+---
+
+<div
+  class="grid grid-cols-2 grid-flow-dense gap-x-6 gap-y-2 text-xs font-mono"
+>
+  {
+    categoryOrder.map((category) => {
+      const items = technologies[category];
+      const label = labels[category];
+      if (!items || !label) return null;
+
+      return (
+        <div>
+          <span class="font-semibold text-cv-green">{label}:</span>
+          <span class="ml-1 text-cv-text">{items.join(", ")}</span>
+        </div>
+      );
+    })
+  }
+</div>

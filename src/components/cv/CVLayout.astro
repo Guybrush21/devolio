@@ -1,0 +1,99 @@
+---
+import "../../styles/global.css";
+import type { Language } from "../../lib/i18n";
+
+interface Props {
+  lang: Language;
+  title: string;
+  description: string;
+  backToSite: string;
+  printButton: string;
+  alternateLang: Language;
+}
+
+const { lang, title, description, backToSite, printButton, alternateLang } =
+  Astro.props;
+
+const baseUrl = "https://www.nicholaspellizer.it";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="alternate" hreflang="it" href={`${baseUrl}/it/cv`} />
+    <link rel="alternate" hreflang="en" href={`${baseUrl}/en/cv`} />
+    <link rel="canonical" href={`${baseUrl}/${lang}/cv`} />
+
+    <style>
+      @media print {
+        body {
+          font-size: 9.5pt;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        @page {
+          margin: 12mm;
+          size: A4;
+        }
+      }
+    </style>
+    <script>
+      function togglePic() {
+        document.querySelector("#me-picture")?.classList.toggle("hidden");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelector("#togglePicButton")
+          ?.addEventListener("click", togglePic);
+      });
+    </script>
+  </head>
+
+  <body class="bg-cv-bg text-cv-text text-[10pt] leading-snug">
+    <div class="flex justify-center w-full gap-2 print:hidden">
+      <a
+        href={`/${lang}/`}
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-bg text-cv-text border-2 border-cv-border hover:opacity-80 transition"
+      >
+        {backToSite}
+      </a>
+      <a
+        href={`/${alternateLang}/cv`}
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-bg text-cv-text border-2 border-cv-border hover:opacity-80 transition"
+      >
+        {alternateLang.toUpperCase()}
+      </a>
+      <button
+        onclick="window.print()"
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-green text-white hover:opacity-90 transition"
+      >
+        {printButton}
+      </button>
+      <button
+        id="togglePicButton"
+        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-green text-white hover:opacity-90 transition"
+      >
+        Toggle Pic
+      </button>
+    </div>
+
+    <div class="max-w-[210mm] mx-auto p-8 bg-cv-bg">
+      <slot />
+    </div>
+  </body>
+</html>

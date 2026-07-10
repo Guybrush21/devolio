@@ -1,19 +1,14 @@
 ---
-import "../../styles/global.css";
 import { languages, isValidLang, type Language } from "../../lib/i18n";
 import * as itData from "../../lib/data/it";
 import * as enData from "../../lib/data/en";
 import { technologies } from "../../lib/data/common";
-import { parseMarkdown } from "../../lib/markdown";
-import {
-  Mail,
-  Phone,
-  Globe,
-  MapPin,
-  Calendar,
-  Flag,
-  GitBranch,
-} from "@lucide/astro";
+import CVLayout from "../../components/cv/CVLayout.astro";
+import CVSectionHeader from "../../components/cv/CVSectionHeader.astro";
+import CVContactInfo from "../../components/cv/CVContactInfo.astro";
+import CVExperienceItem from "../../components/cv/CVExperienceItem.astro";
+import CVLanguages from "../../components/cv/CVLanguages.astro";
+import CVTechStack from "../../components/cv/CVTechStack.astro";
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -28,345 +23,98 @@ if (!isValidLang(lang)) {
 const data = lang === "it" ? itData : enData;
 const alternateLang = lang === "it" ? "en" : "it";
 
-const baseUrl = "https://www.nicholaspellizer.it";
-
-const enablePic = false;
+const contactItems = [
+  { type: "phone" as const, text: data.personalInfo.phone },
+  { type: "email" as const, text: data.personalInfo.email },
+  { type: "location" as const, text: data.personalInfo.location },
+  { type: "date" as const, text: data.personalInfo.dateOfBirth },
+  { type: "flag" as const, text: data.personalInfo.nationality },
+  {
+    type: "github" as const,
+    text: "github.com/Guybrush21",
+    href: "https://github.com/Guybrush21",
+  },
+  {
+    type: "website" as const,
+    text: "nicholaspellizer.it",
+    href: "https://nicholaspellizer.it",
+  },
+];
 ---
 
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content={`${data.heroData.name} - ${data.heroData.role} - Curriculum Vitae`}
-    />
-    <title>{data.heroData.name} | {data.cvPage.title}</title>
+<CVLayout
+  lang={lang}
+  title={`${data.heroData.name} | ${data.cvPage.title}`}
+  description={`${data.heroData.name} - ${data.heroData.role} - Curriculum Vitae`}
+  backToSite={data.cvPage.backToSite}
+  printButton={data.cvPage.printButton}
+  alternateLang={alternateLang}
+>
+  <header class="flex justify-between gap-6 font-mono m-4">
+    <div class="flex-1 min-w-0">
+      <h1 class="text-2xl font-bold text-cv-text mb-1">
+        {data.personalInfo.name}
+      </h1>
+      <p class="font-mono text-base text-cv-purple font-medium mb-3">
+        {data.personalInfo.role}
+      </p>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="alternate" hreflang="it" href={`${baseUrl}/it/cv`} />
-    <link rel="alternate" hreflang="en" href={`${baseUrl}/en/cv`} />
-    <link rel="canonical" href={`${baseUrl}/${lang}/cv`} />
-
-    <style>
-      @media print {
-        body {
-          font-size: 9.5pt;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-        }
-
-        @page {
-          margin: 12mm;
-          size: A4;
-        }
-      }
-    </style>
-    <script>
-      function togglePic() {
-        console.log("toggle");
-        document.querySelector("#me-picture").classList.toggle("hidden");
-      }
-
-      document
-        .querySelector("#togglePicButton")
-        .addEventListener("click", togglePic);
-    </script>
-  </head>
-
-  <body class="bg-cv-bg text-cv-text text-[10pt] leading-snug">
-    <div class="flex justify-center w-full gap-2 print:hidden">
-      <a
-        href={`/${lang}/`}
-        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-bg text-cv-text border-2 border-cv-border hover:opacity-80 transition"
-      >
-        {data.cvPage.backToSite}
-      </a>
-      <a
-        href={`/${alternateLang}/cv`}
-        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-bg text-cv-text border-2 border-cv-border hover:opacity-80 transition"
-      >
-        {alternateLang.toUpperCase()}
-      </a>
-      <button
-        onclick="window.print()"
-        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-green text-white hover:opacity-90 transition"
-      >
-        {data.cvPage.printButton}
-      </button>
-      <button
-        id="togglePicButton"
-        class="px-4 py-2 rounded-md text-sm font-medium font-mono bg-cv-green text-white hover:opacity-90 transition"
-      >
-        Toggle Pic
-      </button>
+      <CVContactInfo items={contactItems} />
     </div>
+    <picture id="me-picture" class="hidden">
+      <source srcset="/me.webp" type="image/webp" />
+      <img
+        src="/me.jpg"
+        alt={data.heroData.name}
+        class="w-[150px] h-[150px] rounded-lg border-2 border-cv-green shadow-md shrink-0 object-cover"
+        loading="eager"
+      />
+    </picture>
+  </header>
 
-    <div class="max-w-[210mm] mx-auto p-8 bg-cv-bg">
-      <header
-        class="flex justify-between gap-6 border-b-6 border-dotted border-cv-purple font-mono pb-2 m-4"
-      >
-        <div class="flex-1 min-w-0">
-          <h1 class="text-2xl font-bold text-cv-text mb-1">
-            {data.personalInfo.name}
-          </h1>
-          <p class="font-mono text-base text-cv-purple font-medium mb-3">
-            {data.personalInfo.role}
-          </p>
+  <section class="px-4 py-2">
+    <CVSectionHeader title={data.cvPage.summary} />
+    <p class="text-sm leading-snug text-cv-text">
+      {data.personalInfo.bio}
+    </p>
+  </section>
 
-          <div
-            class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-cv-text justify-between"
-          >
-            <div class="flex items-center gap-1.5">
-              <Phone class="w-4 h-4 text-cv-green shrink-0" />
-              <span>{data.personalInfo.phone}</span>
-            </div>
-            <span class="text-cv-muted">|</span>
+  <section class="px-4 py-2">
+    <CVSectionHeader title={data.sectionTitles.experience} />
+    {
+      data.jobs.map((job) => (
+        <CVExperienceItem
+          role={job.role}
+          company={job.company}
+          period={job.period}
+          highlights={job.highlights}
+        />
+      ))
+    }
+  </section>
 
-            <div class="flex items-center gap-1.5">
-              <Mail class="w-4 h-4 text-cv-green shrink-0" />
-              <span>{data.personalInfo.email}</span>
-            </div>
-            <span class="text-cv-muted">|</span>
+  <section class="px-4 py-2">
+    <CVSectionHeader title={data.cvPage.otherActivities} />
+    {
+      data.otherActivities.map((activity) => (
+        <CVExperienceItem
+          role={activity.role}
+          company={activity.title}
+          period={activity.period}
+          description={activity.description}
+          link={activity.link}
+        />
+      ))
+    }
+  </section>
 
-            <div class="flex items-center gap-1.5">
-              <MapPin class="w-4 h-4 text-cv-green shrink-0" />
-              <span>{data.personalInfo.location}</span>
-            </div>
-            <span class="text-cv-muted">|</span>
+  <section class="px-4 py-2">
+    <CVSectionHeader title={data.cvPage.languages} />
+    <CVLanguages languages={data.personalInfo.languages} />
+  </section>
 
-            <div class="flex items-center gap-1.5">
-              <Calendar class="w-4 h-4 text-cv-green shrink-0" />
-              <span>{data.personalInfo.dateOfBirth} </span>
-            </div>
-            <span class="text-cv-muted">|</span>
-
-            <div class="flex items-center gap-1.5">
-              <Flag class="w-4 h-4 text-cv-green shrink-0" />
-              <span>{data.personalInfo.nationality}</span>
-            </div>
-            <span class="text-cv-muted">|</span>
-
-            <div class="flex items-center gap-1.5">
-              <GitBranch class="w-4 h-4 text-cv-green shrink-0" />
-              <a
-                href="https://github.com/Guybrush21"
-                target="_blank"
-                rel="noopener"
-                class="hover:text-cv-green transition"
-              >
-                github.com/Guybrush21
-              </a>
-            </div>
-            <span class="text-cv-muted">|</span>
-
-            <div class="flex items-center gap-1.5">
-              <Globe class="w-4 h-4 text-cv-green shrink-0" />
-              <a
-                href="https://nicholaspellizer.it"
-                target="_blank"
-                rel="noopener"
-                class="hover:text-cv-green transition"
-              >
-                nicholaspellizer.it
-              </a>
-            </div>
-          </div>
-        </div>
-        <picture id="me-picture" class="hidden">
-          <source srcset="/me.webp" type="image/webp" />
-          <img
-            src="/me.jpg"
-            alt={data.heroData.name}
-            class="w-[150px] h-[150px] rounded-lg border-2 border-cv-green shadow-md shrink-0 object-cover"
-            loading="eager"
-          />
-        </picture>
-      </header>
-
-      <section class="p-4">
-        <h2
-          class="font-mono text-sm font-semibold text-cv-purple uppercase tracking-wide border-b border-cv-border pb-2 mb-2"
-        >
-          // {data.cvPage.summary}
-        </h2>
-        <p class="text-sm leading-snug text-cv-text">
-          {data.personalInfo.bio}
-        </p>
-      </section>
-
-      <section class="p-4">
-        <h2
-          class="font-mono text-sm font-semibold text-cv-purple uppercase tracking-wide border-b border-cv-border pb-2 mb-2"
-        >
-          // {data.sectionTitles.experience}
-        </h2>
-        {
-          data.jobs.map((job) => (
-            <div class="mb-3 ">
-              <div class="flex justify-between items-baseline mb-0.5">
-                <div class="font-mono text-sm">
-                  <span class="font-semibold text-cv-purple">{job.role}</span>
-                  <span class="text-cv-text"> @ {job.company}</span>
-                </div>
-                <span class="font-mono text-sm text-cv-muted whitespace-nowrap">
-                  {job.period}
-                </span>
-              </div>
-              <ul class="list-disc pl-4 space-y-0.5">
-                {job.highlights.map((highlight) => (
-                  <li
-                    class="text-xs leading-snug text-cv-text"
-                    set:html={parseMarkdown(highlight)}
-                  />
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </section>
-
-      <section class="p-4">
-        <h2
-          class="font-mono text-sm font-semibold text-cv-purple uppercase tracking-wide border-b border-cv-border pb-2 mb-2"
-        >
-          // {data.cvPage.otherActivities}
-        </h2>
-        {
-          data.otherActivities.map((activity) => (
-            <div class="mb-3">
-              <div class="flex justify-between items-baseline mb-0.5">
-                <div class="font-mono text-sm">
-                  <span class="font-semibold text-cv-purple">
-                    {activity.role}
-                  </span>
-                  <span class="text-cv-text"> @ {activity.title}</span>
-                </div>
-                <span class="font-mono text-sm text-cv-muted whitespace-nowrap">
-                  {activity.period}
-                </span>
-              </div>
-              <p class="text-xs leading-snug text-cv-text mb-1">
-                {activity.description}
-              </p>
-              {activity.link && (
-                <p class="text-xs">
-                  <a
-                    href={activity.link.url}
-                    class="text-cv-green hover:underline font-mono"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {activity.link.label}
-                  </a>
-                </p>
-              )}
-            </div>
-          ))
-        }
-      </section>
-      <section class="p-4">
-        <h2
-          class="font-mono text-sm font-semibold text-cv-purple uppercase border-b border-cv-border pb-2 mb-2"
-        >
-          // {data.cvPage.languages}
-        </h2>
-        <div class="flex font-mono text-sm">
-          {
-            data.personalInfo.languages.map((language) => (
-              <div class="flex-1">
-                <p class="font-semibold text-cv-purple mb-0.5">
-                  {language.name}
-                </p>
-                <p class="text-cv-text">{language.level}</p>
-              </div>
-            ))
-          }
-        </div>
-      </section>
-
-      <section class="p-4 break-inside-avoid">
-        <h2
-          class="font-mono text-sm font-semibold text-cv-purple uppercase tracking-wide border-b border-cv-border pb-2 mb-2"
-        >
-          // {data.techLabels.techStack}
-        </h2>
-        <div
-          class="grid grid-cols-2 grid-flow-dense gap-x-6 gap-y-2 text-xs font-mono"
-        >
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.languages}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.languages.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.backend}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.backend.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.frontend}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.frontend.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.data}:</span
-            >
-            <span class="ml-1 text-cv-text">{technologies.data.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.devopsAndCloud}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.devopsAndCloud.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.testingAndQuality}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.testingAndQuality.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.tools}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.tools.join(", ")}</span
-            >
-          </div>
-          <div>
-            <span class="font-semibold text-cv-green"
-              >{data.techLabels.others}:</span
-            >
-            <span class="ml-1 text-cv-text"
-              >{technologies.others.join(", ")}</span
-            >
-          </div>
-        </div>
-      </section>
-    </div>
-  </body>
-</html>
+  <section class="px-4 py-2 break-inside-avoid">
+    <CVSectionHeader title={data.techLabels.techStack} />
+    <CVTechStack technologies={technologies} labels={data.techLabels} />
+  </section>
+</CVLayout>

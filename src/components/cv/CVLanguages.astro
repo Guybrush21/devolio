@@ -1,0 +1,23 @@
+---
+interface Language {
+  name: string;
+  level: string;
+}
+
+interface Props {
+  languages: Language[];
+}
+
+const { languages } = Astro.props;
+---
+
+<div class="flex font-mono text-sm">
+  {
+    languages.map((language) => (
+      <div class="flex-1">
+        <p class="font-semibold text-cv-purple mb-0.5">{language.name}</p>
+        <p class="text-cv-text">{language.level}</p>
+      </div>
+    ))
+  }
+</div>
