@@ -315,7 +315,7 @@ export const sectionTitles = {
   services: "Services",
   projects: "Projects",
   contact: "Get in Touch",
-  fullExperience: "See More ",
+  fullExperience: "See More",
 };
 
 export const ui = {
