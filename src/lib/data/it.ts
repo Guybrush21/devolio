@@ -1,5 +1,3 @@
-// Italian content
-
 import * as c from "./common";
 
 export const navLinks = [
@@ -13,6 +11,7 @@ export const navLinks = [
 
 export const heroData = {
   name: c.personal.name,
+  role: c.personal.role,
   stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
   location: "Full Remote | Trieste, Italia",
   taglines: [
@@ -83,9 +82,12 @@ export const jobs = [
     company: "Freelance",
     role: "Senior Full Stack Developer & Solution Architect",
     period: "01/2026 - Oggi",
+    summary:
+      "Sviluppo di applicazioni web e desktop su misura con architetture manutenibili. Docenza presso EnaipFVG su SQL e database relazionali.",
+    stack: [".NET", "SQL", "PostgreSQL", "SQLite"],
     highlights: [
-      "Sviluppo di applicazioni web e desktop su misura, con architetture manutenibili in ecosistema **.NET**.",
-      "Docenza presso EnaipFVG su modulo **SQL** e i database relazionali, **SqlLite** e **PostgreSQL**",
+      "Applicazioni web e desktop custom in ecosistema .NET",
+      "Docenza SQL e database relazionali presso EnaipFVG",
     ],
   },
 
@@ -93,36 +95,112 @@ export const jobs = [
     company: "Etiqa Srl",
     role: "Senior Software Developer",
     period: "09/2022 - 01/2026",
+    summary:
+      "Vengo inserito come Senior Developer per lo sviluppo di una nuova piattaforme di virtual Healthcare (elty.it) e di welfare aziendale (Welbee) basate su architettura a microservizi in NestJS.",
+    stack: [
+      "Node.js",
+      "NestJS",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+      "Kubernetes",
+      "Github Actions",
+      "Kafka",
+      "GraphQL",
+      "Google Cloud Platform (GCP)",
+      "Aws",
+      "Microservices",
+      "TypeScript",
+      "Vue",
+      "TailwindCSS",
+      "Cypress",
+      "Playwright",
+      "Artillery",
+      "K6s",
+      "SonarQube",
+      "NATS",
+    ],
     highlights: [
-      "Healthcare: Analizzo e finalizzo l'integrazione con il provider di ricerca **Algolia** per un prodotto di prenotazione prestazioni sanitarie, gestendo la normalizzazione dei dati da database **MongoDB** e backend **NestJS**. Mi occupo di varie integrazioni tra cui **MUX** per gestire una libreria di videolezioni.",
-      "Welfare: Sviluppo un portale di welfare aziendale con backend in **microservizi NestJS**, frontend in **Vue** e dati su **PostgreSQL**, garantendo la stabilità del sistema sotto picchi di carico superiori alle migliaia di richieste al minuto. Gestisco anche la parte di reportistica garantendo affidabilità e velocità sulle viste interessate. Mi preoccupo della pipeline di rilascio e della gestione dei rilasci in produzione con **Github Actions** e generazione di immagini **Docker**.",
-      "Testing: Implemento test end-to-end con **Cypress** e unit test con **Jest**, garantendo la qualità del codice e la copertura dei test con strumenti di analisi come **SonarQube** integrati nel processo di **CI/CD** su **Github Actions**. Mi occupo anche dei primi stress test con **Artllery** e **K6s** per garantire la scalabilità del sistema.",
-      "Risoluzione Criticità e Scalabilità: Individuato e risolto un collo di bottiglia sulla scalabilità orizzontale causato dai limiti delle connessioni TCP dirette tra **microservizi NestJS**. Ho proposto di riprogettare la comunicazione interna utilizzando un message broker **Kafka** o **NATS**, permettendo al sistema di scalare correttamente su cluster **Kubernetes** (**GCP**).",
-      "Analisi e Teamwork: Inserito in un team di sviluppatori senior e middle, mi sono occupato della rifinitura dei task e dell'analisi tecnica per garantire efficienza e qualità in ogni rilascio.",
+      "Progetto l'integrazione con Algolia per la ricerca di prestazioni sanitarie",
+      "Mantengo la pipeline CI/CD con Github Actions e Kubernetes",
+      "Collaboro all'analisi per gestire portafoglio monetario virtuale con misure di sicurezza transazionali",
+      "Introduco test end-to-end e stress test su ambiente replica di produzione",
+    ],
+    achievements: [
+      "Risolta instabilità sui picchi di carico con 1000+ richieste al minuto",
+      "Riduzione dei tempi di caricamento su report basati su viste PostgreSQL fino al 90%",
+      "Individuo la causa di un grave problema di scalabilità tra microservizi NestJS in Kubernetes",
     ],
   },
   {
     company: "Gruppo Euris S.P.A.",
     role: "Tech Leader",
     period: "09/2019 - 09/2022",
+    summary:
+      "Team leader di progetto internazionale a supporto ABB Italia per la manutenzione, la creazione e la migrazione di applicazioni interne.",
+    stack: [
+      ".NET",
+      "Angular",
+      "React",
+      "TypeScript",
+      "C#",
+      "Azure",
+      "SharePoint",
+      "TFS/Azure Devops",
+      "Bash",
+      "REST API",
+      "WebSockets",
+      "Entity Framework",
+      "MS SQL Server",
+      "Snowflake",
+      "Apache ECharts",
+      "Apache Spark",
+      "Kendo UI",
+      "Typescript",
+      "Nintex Workflow",
+      "ServiceNow",
+    ],
     highlights: [
-      "Team Leader di Progetto Internazionale (450+ GG/U): Coordinato un team di 4-6 persone per la migrazione di un sistema critico di problem solving industriale (pattern 5 Why, Ishikawa) da **MS Access** a una moderna architettura **.NET Core WebAPI** con frontend **Angular**.",
-      "Performance Optimization: Ottimizzato le rotte di rete per gli impianti produttivi in Cina, riducendo i tempi di caricamento da 3000ms a 200ms.",
-      "Project Management: Gestito l'assegnazione dei task e il supporto tecnico costante al team, mantenendo la responsabilità dei target finanziari di progetto (marginalità e giornate/uomo) con pieno raggiungimento degli obiettivi.",
-      "Tutoraggio e formazione: Responsabile della crescita professionale di diverse figure junior, guidandole dall'onboarding alla piena autonomia tecnica.",
-      "Modernizzazione applicativa: Orchestrato il passaggio degli applicativi **SharePoint** da infrastrutture On-Premise a **SharePoint Online**, gestendo stakeholder internazionali in Polonia e Finlandia.",
-      "Stack tecnologico: Sviluppo su ecosistema Microsoft (**.Net Framework e .NET 2+**) con esteso utilizzo di **Entity Framework** e **MS SQL Server**.",
+      "Migrazione da progetto MS Access + SharePoint Online a .NET, SQL Server e Angular.",
+      "Coordinamento team 4-8 persone e tutoraggio di figure junior dall'onboarding alla piena autonomia.",
+      "Manutenzione di 50+ applicazioni, gestendo incident, change request e manutenzione ordinaria completa di analisi dei requisiti.",
+      "Gestione stakeholder internazionali tra Italia, Polonia, Finlandia, Cina.",
+      "Miglioramento processi di gestione del progetto e del team con metodologie Agile.",
+    ],
+    achievements: [
+      "Progetto 450+ GG/U completato con pieno raggiungimento target finanziari",
+      "Progettato e consegnato 15+ applicazioni web in ecosistema .NET",
+      "Migrate 20+ applicazioni custom SharePoint da 2010 a 2014 a SharePoint Online",
+      "Ottimizzato configurazioni IIS per impianti in Cina e Americhe: riducendo tempi di caricamento da 3000ms a 200ms",
     ],
   },
   {
     company: "Gruppo Euris S.P.A.",
     role: "Junior & Senior Software Developer",
     period: "05/2014 - 09/2019",
+    summary:
+      "Sviluppo e manutenzione di applicativi enterprise su ecosistema Microsoft.",
+    stack: [
+      ".NET Framework",
+      "Razor",
+      "Javascript",
+      "REST API",
+      "CSS3",
+      "SVN",
+      "AngularJS",
+      "Jest",
+      "NUnit",
+      "xUnit",
+      "MS SQL Server",
+      "Entity Framework",
+      "Git",
+      "MicroStation",
+      "RabbitMQ",
+    ],
     highlights: [
-      "Banca Generali: Ho gestito e mantenuto un complesso Data Warehouse di Risk Management con dati globali. Responsabile della manutenzione di oltre 500 stored procedure (layer architecture) su un database con volumi di crescita di circa 2GB/giorno.",
-      "Fincantieri: Progettato e sviluppato un plugin in **.NET** per il CAD 3D **MicroStation**, dedicato all'ottimizzazione e alla gestione della stesura dei cavi all'interno delle commesse navali.",
-      "AcegasApsAmga: Manutenzione evolutiva di applicativi legacy e implementazione di sistemi di messaggistica asincrona tramite l'integrazione di **RabbitMQ**.",
-      "Full Stack Development: Sviluppo e manutenzione di vari progetti basati su **.NET Framework MVC** e database **MS SQL Server**.",
+      "Gestito Data Warehouse Risk Management di Banca Generali con 500+ stored procedure e ~2GB/giorno di crescita",
+      "Sviluppato plugin .NET per CAD 3D MicroStation per gestione cavi navali per Fincantieri",
+      "Integrato messaggistica asincrona con RabbitMQ per HeraAcegasApsAmga",
     ],
   },
 ];
@@ -223,6 +301,7 @@ export const sectionTitles = {
   services: "Servizi",
   projects: "Progetti",
   contact: "Contatti",
+  fullExperience: "Vedi tutte le esperienze",
 };
 
 export const ui = {
@@ -259,8 +338,8 @@ export const otherActivities = [
     title: "Oggi fa bora",
     role: "Co-founder, Podcaster & Audio Engineer",
     period: "03/2025 - Attuale",
-    description:
-      "Soddisfatti della prima esperienza come autori di podcast, io e la mia collaboratrice in Decadi creiamo Oggi fa bora: un podcast per raccontare le varie realtà che ruotano attorno alla città di Trieste. Oltre a prestare ovviamente la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
+    summary:
+      "Creo Oggi fa bora: un podcast che racconta le realtà della città di Trieste. Oltre a prestare la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
     link: {
       url: "https://oggifabora.it",
       label: "oggifabora.it",
@@ -270,8 +349,8 @@ export const otherActivities = [
     title: "Azione Cattolica Trieste",
     role: "Vicepresidente",
     period: "02/2017 - 02/2024",
-    description:
-      "Ho ricoperto la carica di vicepresidente del Settore Giovani per due mandati consecutivi. Siedo nei rispettivi organi di Consiglio e Presidenza. Mi sono fatto carico dell'organizzazione di attività di aggregazione sociale e di interesse culturale per i giovani. Assieme all'equipe abbiamo ideato nuove soluzioni per mettere in rete gli educatori della diocesi. Il secondo triennio è segnato dalla pandemia Covid-19, un periodo che ci ha costretto a ripensare e reinventare metodi e tempi di partecipazione alla vita associativa.",
+    summary:
+      "Vengo eletto vicepresidente del Settore Giovani per due mandati consecutivi. Siedo in Consiglio e Presidenza. Mi occupo dell'organizzazione di attività di aggregazione sociale e di interesse culturale per i giovani.",
   },
 ];
 
@@ -285,6 +364,8 @@ export const cvPage = {
   languages: "Lingue",
   links: "Link",
   otherActivities: "Altre Attività",
+  achievements: "Risultati",
+  highlight: "Attività",
 };
 
 export const techLabels = {

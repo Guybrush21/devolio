@@ -50,7 +50,7 @@ const contactItems = [
   printButton={data.cvPage.printButton}
   alternateLang={alternateLang}
 >
-  <header class="flex justify-between gap-6 font-mono m-4">
+  <header class="flex justify-between gap-6 font-mono m-2">
     <div class="flex-1 min-w-0">
       <h1 class="text-2xl font-bold text-cv-text mb-1">
         {data.personalInfo.name}
@@ -72,14 +72,14 @@ const contactItems = [
     </picture>
   </header>
 
-  <section class="px-4 py-2">
+  <section class="p-2">
     <CVSectionHeader title={data.cvPage.summary} />
     <p class="text-sm leading-snug text-cv-text">
       {data.personalInfo.bio}
     </p>
   </section>
 
-  <section class="px-4 py-2">
+  <section class="p-2">
     <CVSectionHeader title={data.sectionTitles.experience} />
     {
       data.jobs.map((job) => (
@@ -87,13 +87,18 @@ const contactItems = [
           role={job.role}
           company={job.company}
           period={job.period}
+          summary={job.summary}
+          stack={job.stack}
           highlights={job.highlights}
+          highlightsLabel={data.cvPage.highlight}
+          achievements={job.achievements}
+          achievementsLabel={data.cvPage.achievements}
         />
       ))
     }
   </section>
 
-  <section class="px-4 py-2">
+  <section class="p-2">
     <CVSectionHeader title={data.cvPage.otherActivities} />
     {
       data.otherActivities.map((activity) => (
@@ -101,20 +106,15 @@ const contactItems = [
           role={activity.role}
           company={activity.title}
           period={activity.period}
-          description={activity.description}
+          summary={activity.summary}
           link={activity.link}
         />
       ))
     }
   </section>
 
-  <section class="px-4 py-2">
+  <section class="p-2">
     <CVSectionHeader title={data.cvPage.languages} />
     <CVLanguages languages={data.personalInfo.languages} />
-  </section>
-
-  <section class="px-4 py-2 break-inside-avoid">
-    <CVSectionHeader title={data.techLabels.techStack} />
-    <CVTechStack technologies={technologies} labels={data.techLabels} />
   </section>
 </CVLayout>

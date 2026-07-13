@@ -12,9 +12,10 @@ interface Job {
 interface Props {
   title: string;
   jobs: Job[];
+  more: string;
 }
 
-const { title, jobs } = Astro.props;
+const { title, jobs, more } = Astro.props;
 ---
 
 <section id="experience" class="py-20">
@@ -32,5 +33,13 @@ const { title, jobs } = Astro.props;
         ))
       }
     </div>
+    <button>
+      <a
+        href="cv"
+        class="mt-8 inline-block bg-accent text-bg-dark font-mono text-sm font-semibold px-6 py-3 rounded hover:bg-accent-dark transition-colors"
+      >
+        {more}
+      </a>
+    </button>
   </div>
 </section>
