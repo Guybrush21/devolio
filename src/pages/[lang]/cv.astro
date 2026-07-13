@@ -90,6 +90,7 @@ const contactItems = [
           summary={job.summary}
           stack={job.stack}
           highlights={job.highlights}
+          highlightsLabel={data.cvPage.highlight}
           achievements={job.achievements}
           achievementsLabel={data.cvPage.achievements}
         />
@@ -105,7 +106,7 @@ const contactItems = [
           role={activity.role}
           company={activity.title}
           period={activity.period}
-          description={activity.description}
+          summary={activity.summary}
           link={activity.link}
         />
       ))

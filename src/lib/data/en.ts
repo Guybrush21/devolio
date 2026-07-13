@@ -311,7 +311,7 @@ export const otherActivities = [
     title: "Oggi fa bora",
     role: "Co-founder, Podcaster & Audio Engineer",
     period: "03/2025 - Present",
-    description:
+    summary:
       "Satisfied with our first experience as podcast authors, my collaborator and I created Oggi fa bora: a podcast to tell the stories of various realities revolving around the city of Trieste. Besides lending our voices, I handle the recording, editing, and publishing of episodes.",
     link: {
       url: "https://oggifabora.it",
@@ -322,7 +322,7 @@ export const otherActivities = [
     title: "Youth Sector - Diocese of Trieste",
     role: "Vice President",
     period: "02/2017 - 02/2024",
-    description:
+    summary:
       "I held the position of vice president of the Youth Sector for two consecutive three-year terms. I sat on the respective Council and Presidency bodies. I took charge of organizing social aggregation and cultural interest activities for young people. Together with the team, we devised new solutions to network the diocese's educators. The second term was obviously influenced by the Covid-19 pandemic, a difficult period that forced us to rethink and reinvent methods and timing of participation in associative life.",
   },
 ];
@@ -338,6 +338,7 @@ export const cvPage = {
   links: "Links",
   otherActivities: "Other Activities",
   achievements: "Achievements",
+  highlight: "Activities",
 };
 
 export const techLabels = {

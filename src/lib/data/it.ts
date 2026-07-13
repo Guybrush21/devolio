@@ -97,7 +97,7 @@ export const jobs = [
     role: "Senior Software Developer",
     period: "09/2022 - 01/2026",
     summary:
-      "Sviluppo di piattaforme Healthcare e Welfare basate su architettura a microservizi.",
+      "Vengo inserito come Senior Developer per lo sviluppo di una nuova piattaforme di virtual Healthcare (elty.it) e di welfare aziendale (Welbee) basate su architettura a microservizi in NestJS.",
     stack: [
       "Node.js",
       "NestJS",
@@ -107,26 +107,25 @@ export const jobs = [
       "MongoDB",
       "Docker",
       "Github Actions",
-      "Kubernetes",
       "GCP",
       "Cypress",
-      "Jest",
       "Artillery",
       "K6s",
       "SonarQube",
-      "Kafka",
       "NATS",
     ],
     highlights: [
-      "Progettata l'integrazione con **Algolia** per la ricerca di prestazioni sanitarie",
+      "Progetto l'integrazione con **Algolia** per la ricerca di prestazioni sanitarie",
+      "Mantengo la pipeline CI/CD con **Github Actions** e **Kubernetes**",
+      "Collaboro all'analisi per gestire portafoglio monetario virtuale con misure di sicurezza transazionali",
+      "Introduco test end-to-end e stress test su ambiente replica di produzione",
+      "Individuo un grave collo di bottiglia nella scalabilità in K8S tra microservizi NestJS, riprogettando con **Kafka/NATS**",
       "Implementata una libreria video tramite integrazione **MUX**",
-      "Realizzata la pipeline CI/CD con **Github Actions** e **Docker**",
-      "Introdotti test end-to-end, unitari e stress test",
-      "Eliminato un collo di bottiglia nella comunicazione tra microservizi riprogettando con **Kafka/NATS**",
     ],
     achievements: [
-      "Sistema stabile sotto migliaia di richieste al minuto",
-      "Scalabilità orizzontale ottenuta su cluster **Kubernetes GCP**",
+      "Risolta instabilità sui picchi di carico con 1000+ richieste al minuto",
+      "Riduzione dei tempi di caricamento su report basati su viste PostgreSQL fino al 90%",
+      "Scalabilità orizzontale ottenuta e migliorata su cluster **Kubernetes GCP**",
     ],
   },
   {
@@ -134,24 +133,34 @@ export const jobs = [
     role: "Tech Leader",
     period: "09/2019 - 09/2022",
     summary:
-      "Team leader di progetto internazionale per la migrazione di sistemi critici di problem solving industriale.",
+      "Team leader di progetto internazionale a supporto **ABB Italia** per la manutenzione, la creazione e la migrazione di applicazioni interne.",
     stack: [
-      ".NET Core",
+      ".NET",
       "Angular",
+      "React",
+      "TypeScript",
+      "C#",
+      "Azure",
+      "SharePoint",
       "Entity Framework",
       "MS SQL Server",
-      "SharePoint",
-      "SharePoint Online",
+      "Snowflake",
+      "Kendo UI",
+      "Nintex Workflow",
+      "ServiceNow",
     ],
     highlights: [
-      "Coordinato team 4-6 persone per migrazione da **MS Access** a **.NET Core + Angular**",
-      "Ottimizzato rotte di rete per impianti in Cina: da 3000ms a 200ms",
-      "Gestito stakeholder internazionali (Polonia, Finlandia) per migrazione **SharePoint Online**",
+      "Coordinato team 4-8 persone per migrazione da progett **MS Access** + **SharePoint Online** a **.NET**, **SQL Server** e **Angular**",
+      "Mantenuto parco applicativo di 50+ applicazioni web, gestendo analisi dei requisiti per evolutive e manutenzione ordinaria",
+      "Gestito stakeholder internazionali tra Italia, Polonia, Finlandia, Cina.",
+      "Migliorato processi di gestione del progetto e del team con metodologie **Agile**",
       "Tutoraggio di figure junior dall'onboarding alla piena autonomia",
     ],
     achievements: [
       "Progetto 450+ GG/U completato con pieno raggiungimento target finanziari",
-      "Crescita professionale di diverse figure junior fino ad autonomia completa",
+      "Progettato e consegnato 15+ applicazioni web in ecosistema .NET",
+      "Migrate 20+ applicazioni custom SharePoint da 2010 a 2014 a SharePoint Online",
+      "Ottimizzato configurazioni IIS per impianti in Cina e Americhe: riducendo tempi di caricamento da 3000ms a 200ms",
     ],
   },
   {
@@ -162,16 +171,17 @@ export const jobs = [
       "Sviluppo e manutenzione di applicativi enterprise su ecosistema Microsoft.",
     stack: [
       ".NET Framework",
-      "MVC",
+      "Razor",
+      "REST API",
       "MS SQL Server",
       "Entity Framework",
       "MicroStation",
       "RabbitMQ",
     ],
     highlights: [
-      "**Banca Generali**: Gestito Data Warehouse Risk Management con 500+ stored procedure, 2GB/giorno di crescita",
-      "**Fincantieri**: Sviluppato plugin **.NET** per CAD 3D **MicroStation** per gestione cavi navali",
-      "**AcegasApsAmga**: Integrato messaggistica asincrona con **RabbitMQ**",
+      "Gestito Data Warehouse Risk Management di Banca Generali con 500+ stored procedure e ~2GB/giorno di crescita",
+      "Sviluppato plugin **.NET** per CAD 3D **MicroStation** per gestione cavi navali per Fincantieri",
+      "Integrato messaggistica asincrona con **RabbitMQ** per HeraAcegasApsAmga",
     ],
   },
 ];
@@ -308,8 +318,8 @@ export const otherActivities = [
     title: "Oggi fa bora",
     role: "Co-founder, Podcaster & Audio Engineer",
     period: "03/2025 - Attuale",
-    description:
-      "Soddisfatti della prima esperienza come autori di podcast, io e la mia collaboratrice in Decadi creiamo Oggi fa bora: un podcast per raccontare le varie realtà che ruotano attorno alla città di Trieste. Oltre a prestare ovviamente la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
+    summary:
+      "Creo ***Oggi fa bora***: un podcast che racconta le realtà della città di Trieste. Oltre a prestare la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
     link: {
       url: "https://oggifabora.it",
       label: "oggifabora.it",
@@ -319,8 +329,8 @@ export const otherActivities = [
     title: "Azione Cattolica Trieste",
     role: "Vicepresidente",
     period: "02/2017 - 02/2024",
-    description:
-      "Ho ricoperto la carica di vicepresidente del Settore Giovani per due mandati consecutivi. Siedo nei rispettivi organi di Consiglio e Presidenza. Mi sono fatto carico dell'organizzazione di attività di aggregazione sociale e di interesse culturale per i giovani. Assieme all'equipe abbiamo ideato nuove soluzioni per mettere in rete gli educatori della diocesi. Il secondo triennio è segnato dalla pandemia Covid-19, un periodo che ci ha costretto a ripensare e reinventare metodi e tempi di partecipazione alla vita associativa.",
+    summary:
+      "Vengo eletto vicepresidente del Settore Giovani per due mandati consecutivi. Siedo in Consiglio e Presidenza. Mi occupo dell'organizzazione di attività di aggregazione sociale e di interesse culturale per i giovani.",
   },
 ];
 
@@ -335,6 +345,7 @@ export const cvPage = {
   links: "Link",
   otherActivities: "Altre Attività",
   achievements: "Risultati",
+  highlight: "Attività",
 };
 
 export const techLabels = {
