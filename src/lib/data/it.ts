@@ -44,7 +44,7 @@ export const skills = [
   {
     category: "DevOps",
     items: [
-      "Github Actions",
+      "GitHub Actions",
       "Docker",
       "Kubernetes",
       "Ansible",
@@ -55,7 +55,7 @@ export const skills = [
   },
   {
     category: "Linguaggi",
-    items: ["C#", "Italiano", "Typescript", "SQL", "Inglese", "Rust", "Bash"],
+    items: ["C#", "Italiano", "TypeScript", "SQL", "Inglese", "Rust", "Bash"],
     note: "in quest'ordine",
   },
   {
@@ -96,7 +96,7 @@ export const jobs = [
     role: "Senior Software Developer",
     period: "09/2022 - 01/2026",
     summary:
-      "Vengo inserito come Senior Developer per lo sviluppo di una nuova piattaforme di virtual Healthcare (elty.it) e di welfare aziendale (Welbee) basate su architettura a microservizi in NestJS.",
+      "Sono inserito come Senior Developer in un team di 8+ persone per lo sviluppo di una nuova piattaforme di virtual Healthcare (elty.it) e di welfare aziendale (Welbee) basate su architettura a microservizi in NestJS. Progressivamente mi occupo di definire l'architettura dei microservizi, la gestione dei dati e l'integrazione con sistemi esterni.",
     stack: [
       "Node.js",
       "NestJS",
@@ -104,7 +104,7 @@ export const jobs = [
       "MongoDB",
       "Docker",
       "Kubernetes",
-      "Github Actions",
+      "GitHub Actions",
       "Kafka",
       "GraphQL",
       "Google Cloud Platform (GCP)",
@@ -116,20 +116,20 @@ export const jobs = [
       "Cypress",
       "Playwright",
       "Artillery",
-      "K6s",
+      "k6",
       "SonarQube",
       "NATS",
     ],
     highlights: [
-      "Progetto l'integrazione con Algolia per la ricerca di prestazioni sanitarie",
-      "Mantengo la pipeline CI/CD con Github Actions e Kubernetes",
-      "Collaboro all'analisi per gestire portafoglio monetario virtuale con misure di sicurezza transazionali",
-      "Introduco test end-to-end e stress test su ambiente replica di produzione",
+      "Progettazione dell'integrazione con Algolia per la ricerca di prestazioni sanitarie.",
+      "Automatizzazione della pipeline CI/CD con GitHub Actions e deploy su cluster Kubernetes.",
+      "Definisco le strategie transazionali per gestire un portafoglio monetario virtuale.",
+      "Aggiunta dei test end-to-end e stress test su ambiente replica di produzione.",
     ],
     achievements: [
-      "Risolta instabilità sui picchi di carico con 1000+ richieste al minuto",
-      "Riduzione dei tempi di caricamento su report basati su viste PostgreSQL fino al 90%",
       "Individuo la causa di un grave problema di scalabilità tra microservizi NestJS in Kubernetes",
+      "Risolta instabilità sui picchi di carico con 1000+ richieste al minuto",
+      "Riduco i tempi di caricamento di report basati su viste PostgreSQL fino al 90%",
     ],
   },
   {
@@ -156,22 +156,21 @@ export const jobs = [
       "Apache ECharts",
       "Apache Spark",
       "Kendo UI",
-      "Typescript",
       "Nintex Workflow",
       "ServiceNow",
     ],
     highlights: [
-      "Migrazione da progetto MS Access + SharePoint Online a .NET, SQL Server e Angular.",
+      "Guido la migrazione da progetto MS Access + SharePoint Online a .NET, SQL Server e Angular.",
       "Coordinamento team 4-8 persone e tutoraggio di figure junior dall'onboarding alla piena autonomia.",
       "Manutenzione di 50+ applicazioni, gestendo incident, change request e manutenzione ordinaria completa di analisi dei requisiti.",
       "Gestione stakeholder internazionali tra Italia, Polonia, Finlandia, Cina.",
       "Miglioramento processi di gestione del progetto e del team con metodologie Agile.",
     ],
     achievements: [
-      "Progetto 450+ GG/U completato con pieno raggiungimento target finanziari",
-      "Progettato e consegnato 15+ applicazioni web in ecosistema .NET",
-      "Migrate 20+ applicazioni custom SharePoint da 2010 a 2014 a SharePoint Online",
-      "Ottimizzato configurazioni IIS per impianti in Cina e Americhe: riducendo tempi di caricamento da 3000ms a 200ms",
+      "Consegno il primo progetto da 450+ GG/U completato con piena soddisfazione del cliente",
+      "Progetto e consegno oltre 15 applicazioni web in ecosistema .NET",
+      "Migro 20+ applicazioni custom SharePoint da 2010 a 2014 a SharePoint Online",
+      "Ottimizzo configurazioni IIS per impianti in Cina e Americhe: riducendo tempi di caricamento da 3000ms a 200ms",
     ],
   },
   {
@@ -179,7 +178,7 @@ export const jobs = [
     role: "Junior & Senior Software Developer",
     period: "05/2014 - 09/2019",
     summary:
-      "Sviluppo e manutenzione di applicativi enterprise su ecosistema Microsoft.",
+      "Sviluppo e manutenzione di applicativi prevalentemente su ecosistema Microsoft. Prendo rapidamente confidenza con .NET e SQL Server. Vedo molti progetti diversi per diversi clienti che mi permettono di crescere rapidamente come sviluppatore e come professionista.",
     stack: [
       ".NET Framework",
       "Razor",
@@ -198,9 +197,9 @@ export const jobs = [
       "RabbitMQ",
     ],
     highlights: [
-      "Gestito Data Warehouse Risk Management di Banca Generali con 500+ stored procedure e ~2GB/giorno di crescita",
-      "Sviluppato plugin .NET per CAD 3D MicroStation per gestione cavi navali per Fincantieri",
-      "Integrato messaggistica asincrona con RabbitMQ per HeraAcegasApsAmga",
+      "Gestisco un Data Warehouse di Risk Management per Banca Generali con 500+ stored procedure e ~2GB/giorno di crescita",
+      "Sviluppo plugin in .NET per CAD 3D MicroStation per gestione cavi navali per Fincantieri",
+      "Integro messaggistica asincrona con RabbitMQ per collegare diversi servizi di HeraAcegasApsAmga",
     ],
   },
 ];
@@ -232,7 +231,7 @@ export const projects = [
     name: "oggifabora.it",
     url: "https://oggifabora.it",
     description:
-      "Quando non programmo conduco, registro e monto un podcast su Trieste. Questo template scarica gli episodi da un feed RSS e genera un sito statico con Astro che viene deployato via FTP da delle Github Actions.",
+      "Quando non programmo conduco, registro e monto un podcast su Trieste. Questo template scarica gli episodi da un feed RSS e genera un sito statico con Astro che viene deployato via FTP da delle GitHub Actions.",
   },
   {
     name: "decadi.it",
@@ -312,7 +311,7 @@ export const personalInfo = {
   ...c.personal,
   location: "Trieste, Italia",
   nationality: " Italiano",
-  bio: "Sviluppatore full stack con oltre 10 anni di esperienza nella progettazione, lo sviluppo e la manutenzione di architetture software complesse su stack Microsoft .NET e Node.js. Con esperienza nella gestione di team, analisi dei requisiti e mentoring di figure junior. Appassionato di DevOps e ottimizzazione dei processi di sviluppo.",
+  bio: "Senior Software Developer & Solution Architect con oltre 10 anni di esperienza nella progettazione di applicazioni enterprise su stack .NET e Node.js. Specializzato in architetture distribuite, integrazione di sistemi complessi, modernizzazione applicativa e leadership tecnica. Esperienza nella guida di team, nella definizione di architetture software e nel supporto a clienti enterprise nei settori assicurativo, finanziario, healthcare e industriale. Curioso per natura e orientato al miglioramento continuo, mi piace affrontare problemi complessi e trasformarli in soluzioni semplici, affidabili e manutenibili.",
   languages: [
     { name: "Italiano", level: "Madrelingua" },
     { name: "Inglese", level: "B1 - Intermedio" },
