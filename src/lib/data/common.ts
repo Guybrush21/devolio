@@ -2,7 +2,7 @@ export const personal = {
   email: "mail@nicholaspellizer.it",
   phone: " +39 338 284 8486",
   name: "Nicholas Pellizer",
-  role: "Full-Stack Architect & Tech Lead",
+  role: "Senior Full-Stack Developer & Solution Architect",
   dateOfBirth: "21/04/1992",
 };
 

@@ -1,5 +1,4 @@
-// English content
-
+import * as c from "./common";
 export const navLinks = [
   { href: "#about", label: "about" },
   { href: "#skills", label: "skills" },
@@ -10,8 +9,8 @@ export const navLinks = [
 ];
 
 export const heroData = {
-  name: "Nicholas Pellizer",
-  role: "Full-Stack Architect & Tech Lead",
+  name: c.personal.name,
+  role: c.personal.role,
   stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
   location: "Full Remote | Trieste, Italia",
   taglines: [
@@ -19,7 +18,7 @@ export const heroData = {
     "available as a freelance",
   ],
   ctaContact: { href: "#contact", label: "contact" },
-  ctaDownload: { href: "/nicholaspellizer.pdf", label: "download cv" },
+  ctaDownload: { href: "/nicholaspellizer-en.pdf", label: "download cv" },
 };
 
 export const aboutData = {
@@ -104,7 +103,7 @@ export const jobs = [
       "MongoDB",
       "Docker",
       "Kubernetes",
-      "Github Actions",
+      "GitHub Actions",
       "Kafka",
       "GraphQL",
       "Google Cloud Platform (GCP)",
@@ -116,20 +115,20 @@ export const jobs = [
       "Cypress",
       "Playwright",
       "Artillery",
-      "K6s",
+      "k6",
       "SonarQube",
       "NATS",
     ],
     highlights: [
       "Designed Algolia integration for healthcare service search",
-      "Maintained CI/CD pipeline with Github Actions and Kubernetes",
-      "Collaborated on analysis to manage virtual monetary portfolio with transactional security measures",
+      "Automated CI/CD pipeline with GitHub Actions and Kubernetes cluster deployment",
+      "Defined transactional strategies to manage a virtual monetary portfolio",
       "Introduced end-to-end and stress testing on production replica environment",
     ],
     achievements: [
+      "Identified the cause of a critical scalability issue between NestJS microservices in Kubernetes",
       "Resolved instability on load peaks with 1000+ requests per minute",
       "Reduced loading times on PostgreSQL view-based reports by up to 90%",
-      "Identified the cause of a critical scalability issue between NestJS microservices in Kubernetes",
     ],
   },
   {
@@ -156,7 +155,6 @@ export const jobs = [
       "Apache ECharts",
       "Apache Spark",
       "Kendo UI",
-      "Typescript",
       "Nintex Workflow",
       "ServiceNow",
     ],
@@ -168,7 +166,7 @@ export const jobs = [
       "Improved project and team management processes with Agile methodologies",
     ],
     achievements: [
-      "450+ person-days project completed with full financial targets achieved",
+      "450+ person-days project completed with full client satisfaction",
       "Designed and delivered 15+ web applications in .NET ecosystem",
       "Migrated 20+ custom SharePoint applications from 2010/2014 to SharePoint Online",
       "Optimized IIS configurations for plants in China and Americas: reducing loading times from 3000ms to 200ms",
@@ -200,7 +198,7 @@ export const jobs = [
     highlights: [
       "Managed Banca Generali Risk Management Data Warehouse with 500+ stored procedures and ~2GB/day growth",
       "Developed .NET plugin for MicroStation 3D CAD for naval cable management for Fincantieri",
-      "Integrated asynchronous messaging with RabbitMQ for HeraAcegasApsAmga",
+      "Integrated asynchronous messaging with RabbitMQ to connect different services of HeraAcegasApsAmga",
     ],
   },
 ];
@@ -330,7 +328,7 @@ export const personalInfo = {
   dateOfBirth: "21/04/1992",
   location: "Trieste, Italy",
   nationality: "🇮🇹 Italian",
-  bio: "Full-stack developer with over 10 years of experience in designing, developing and maintaining complex software architectures on Microsoft .NET and Node.js stacks. Experienced in team management, requirements analysis and mentoring junior developers. Passionate about DevOps and development process optimization.",
+  bio: "Senior Software Developer & Solution Architect with over 10 years of experience designing enterprise applications on .NET and Node.js stacks. Specialized in distributed architectures, complex system integration, application modernization, and technical leadership. Experienced in leading teams, defining software architectures, and supporting enterprise clients in the insurance, financial, healthcare, and manufacturing sectors. Curious by nature and oriented toward continuous improvement, I enjoy tackling complex problems and turning them into simple, reliable, maintainable solutions.",
   languages: [
     { name: "Italian", level: "Native" },
     { name: "English", level: "B1 - Intermediate" },

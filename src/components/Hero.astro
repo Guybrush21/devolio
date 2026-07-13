@@ -24,7 +24,7 @@ const { name, role, stack, location, taglines, ctaContact, ctaDownload } =
 const terminalLines = [
   {
     type: "assignment" as const,
-    keyword: "let",
+    keyword: "const",
     variable: "name",
     value: name,
   },
@@ -42,7 +42,7 @@ const terminalLines = [
   },
   {
     type: "assignment" as const,
-    keyword: "let",
+    keyword: "const",
     variable: "location",
     value: location,
   },

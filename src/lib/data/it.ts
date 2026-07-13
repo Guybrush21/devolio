@@ -19,7 +19,7 @@ export const heroData = {
     "disponibile come freelance",
   ],
   ctaContact: { href: "#contact", label: "contatti" },
-  ctaDownload: { href: "/nicholaspellizer.pdf", label: "scarica cv" },
+  ctaDownload: { href: "/nicholaspellizer-it.pdf", label: "scarica cv" },
 };
 
 export const aboutData = {
