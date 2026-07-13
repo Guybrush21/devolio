@@ -1,5 +1,3 @@
-// Italian content
-
 import * as c from "./common";
 
 export const navLinks = [
@@ -13,6 +11,7 @@ export const navLinks = [
 
 export const heroData = {
   name: c.personal.name,
+  role: c.personal.role,
   stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
   location: "Full Remote | Trieste, Italia",
   taglines: [
@@ -101,31 +100,36 @@ export const jobs = [
     stack: [
       "Node.js",
       "NestJS",
-      "TypeScript",
-      "Vue",
       "PostgreSQL",
       "MongoDB",
       "Docker",
+      "Kubernetes",
       "Github Actions",
-      "GCP",
+      "Kafka",
+      "GraphQL",
+      "Google Cloud Platform (GCP)",
+      "Aws",
+      "Microservices",
+      "TypeScript",
+      "Vue",
+      "TailwindCSS",
       "Cypress",
+      "Playwright",
       "Artillery",
       "K6s",
       "SonarQube",
       "NATS",
     ],
     highlights: [
-      "Progetto l'integrazione con **Algolia** per la ricerca di prestazioni sanitarie",
-      "Mantengo la pipeline CI/CD con **Github Actions** e **Kubernetes**",
+      "Progetto l'integrazione con Algolia per la ricerca di prestazioni sanitarie",
+      "Mantengo la pipeline CI/CD con Github Actions e Kubernetes",
       "Collaboro all'analisi per gestire portafoglio monetario virtuale con misure di sicurezza transazionali",
       "Introduco test end-to-end e stress test su ambiente replica di produzione",
-      "Individuo un grave collo di bottiglia nella scalabilità in K8S tra microservizi NestJS, riprogettando con **Kafka/NATS**",
-      "Implementata una libreria video tramite integrazione **MUX**",
     ],
     achievements: [
       "Risolta instabilità sui picchi di carico con 1000+ richieste al minuto",
       "Riduzione dei tempi di caricamento su report basati su viste PostgreSQL fino al 90%",
-      "Scalabilità orizzontale ottenuta e migliorata su cluster **Kubernetes GCP**",
+      "Individuo la causa di un grave problema di scalabilità tra microservizi NestJS in Kubernetes",
     ],
   },
   {
@@ -133,7 +137,7 @@ export const jobs = [
     role: "Tech Leader",
     period: "09/2019 - 09/2022",
     summary:
-      "Team leader di progetto internazionale a supporto **ABB Italia** per la manutenzione, la creazione e la migrazione di applicazioni interne.",
+      "Team leader di progetto internazionale a supporto ABB Italia per la manutenzione, la creazione e la migrazione di applicazioni interne.",
     stack: [
       ".NET",
       "Angular",
@@ -142,19 +146,26 @@ export const jobs = [
       "C#",
       "Azure",
       "SharePoint",
+      "TFS/Azure Devops",
+      "Bash",
+      "REST API",
+      "WebSockets",
       "Entity Framework",
       "MS SQL Server",
       "Snowflake",
+      "Apache ECharts",
+      "Apache Spark",
       "Kendo UI",
+      "Typescript",
       "Nintex Workflow",
       "ServiceNow",
     ],
     highlights: [
-      "Coordinato team 4-8 persone per migrazione da progett **MS Access** + **SharePoint Online** a **.NET**, **SQL Server** e **Angular**",
-      "Mantenuto parco applicativo di 50+ applicazioni web, gestendo analisi dei requisiti per evolutive e manutenzione ordinaria",
-      "Gestito stakeholder internazionali tra Italia, Polonia, Finlandia, Cina.",
-      "Migliorato processi di gestione del progetto e del team con metodologie **Agile**",
-      "Tutoraggio di figure junior dall'onboarding alla piena autonomia",
+      "Migrazione da progetto MS Access + SharePoint Online a .NET, SQL Server e Angular.",
+      "Coordinamento team 4-8 persone e tutoraggio di figure junior dall'onboarding alla piena autonomia.",
+      "Manutenzione di 50+ applicazioni, gestendo incident, change request e manutenzione ordinaria completa di analisi dei requisiti.",
+      "Gestione stakeholder internazionali tra Italia, Polonia, Finlandia, Cina.",
+      "Miglioramento processi di gestione del progetto e del team con metodologie Agile.",
     ],
     achievements: [
       "Progetto 450+ GG/U completato con pieno raggiungimento target finanziari",
@@ -172,16 +183,24 @@ export const jobs = [
     stack: [
       ".NET Framework",
       "Razor",
+      "Javascript",
       "REST API",
+      "CSS3",
+      "SVN",
+      "AngularJS",
+      "Jest",
+      "NUnit",
+      "xUnit",
       "MS SQL Server",
       "Entity Framework",
+      "Git",
       "MicroStation",
       "RabbitMQ",
     ],
     highlights: [
       "Gestito Data Warehouse Risk Management di Banca Generali con 500+ stored procedure e ~2GB/giorno di crescita",
-      "Sviluppato plugin **.NET** per CAD 3D **MicroStation** per gestione cavi navali per Fincantieri",
-      "Integrato messaggistica asincrona con **RabbitMQ** per HeraAcegasApsAmga",
+      "Sviluppato plugin .NET per CAD 3D MicroStation per gestione cavi navali per Fincantieri",
+      "Integrato messaggistica asincrona con RabbitMQ per HeraAcegasApsAmga",
     ],
   },
 ];
@@ -282,6 +301,7 @@ export const sectionTitles = {
   services: "Servizi",
   projects: "Progetti",
   contact: "Contatti",
+  fullExperience: "Vedi tutte le esperienze",
 };
 
 export const ui = {
@@ -319,7 +339,7 @@ export const otherActivities = [
     role: "Co-founder, Podcaster & Audio Engineer",
     period: "03/2025 - Attuale",
     summary:
-      "Creo ***Oggi fa bora***: un podcast che racconta le realtà della città di Trieste. Oltre a prestare la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
+      "Creo Oggi fa bora: un podcast che racconta le realtà della città di Trieste. Oltre a prestare la voce, mi occupo della registrazione, dell'editing e della pubblicazione degli episodi.",
     link: {
       url: "https://oggifabora.it",
       label: "oggifabora.it",

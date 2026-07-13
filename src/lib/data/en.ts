@@ -285,6 +285,7 @@ export const sectionTitles = {
   services: "Services",
   projects: "Projects",
   contact: "Get in Touch",
+  fullExperience: "See More ",
 };
 
 export const ui = {
