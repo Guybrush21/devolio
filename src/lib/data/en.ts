@@ -12,7 +12,7 @@ export const navLinks = [
 export const heroData = {
   name: "Nicholas Pellizer",
   role: "Full-Stack Architect & Tech Lead",
-  stack: "[.NET | Node.js | Angular | React | SQL]",
+  stack: "['.NET', 'Node.js', 'Angular', 'React', 'SQL']",
   location: "Full Remote | Trieste, Italia",
   taglines: [
     "10+ years of experience in development, maintenance and management of applications",
@@ -26,7 +26,6 @@ export const aboutData = {
   paragraphs: [
     "I solve problems and build solutions. With over a decade of experience in software development, I've worked across the full stack, from complex data warehouses to modern web applications.",
     "My career has allowed me to move successfully between different worlds. I've collaborated with large companies in the financial, insurance, and manufacturing sectors, where precision, security, and scalability are essential. I've supported startups, where speed of execution and adaptability make the difference between an idea and a successful product.",
-    "After leading teams and managing critical projects, I don't just offer code—I deliver reliable, high-quality software focused on results.",
     "I started when jQuery was the hot new thing. I used React before Hooks existed, Angular before TypeScript, and led the transition to web for legacy desktop applications. From early monolithic frameworks to today's AI agents, my constant has been evolution: I don't just use technology, I learn it every day.",
   ],
 };
@@ -45,7 +44,7 @@ export const skills = [
   {
     category: "DevOps",
     items: [
-      "Github Actions",
+      "GitHub Actions",
       "Docker",
       "Kubernetes",
       "Ansible",
@@ -252,6 +251,7 @@ export const servicesData = [
       "Full-stack development (backend, frontend, APIs)",
       "Cloud-native and microservices solutions",
       "Code review and quality assurance",
+      "CI/CD systems for new or existing projects",
     ],
   },
   {
@@ -343,18 +343,18 @@ export const otherActivities = [
     role: "Co-founder, Podcaster & Audio Engineer",
     period: "03/2025 - Present",
     summary:
-      "Satisfied with our first experience as podcast authors, my collaborator and I created Oggi fa bora: a podcast to tell the stories of various realities revolving around the city of Trieste. Besides lending our voices, I handle the recording, editing, and publishing of episodes.",
+      "When I'm not coding, I co-host, record and edit a podcast about Trieste. Besides lending my voice, I handle the recording, editing, and publishing of episodes.",
     link: {
       url: "https://oggifabora.it",
       label: "oggifabora.it",
     },
   },
   {
-    title: "Youth Sector - Diocese of Trieste",
+    title: "Azione Cattolica Trieste",
     role: "Vice President",
     period: "02/2017 - 02/2024",
     summary:
-      "I held the position of vice president of the Youth Sector for two consecutive three-year terms. I sat on the respective Council and Presidency bodies. I took charge of organizing social aggregation and cultural interest activities for young people. Together with the team, we devised new solutions to network the diocese's educators. The second term was obviously influenced by the Covid-19 pandemic, a difficult period that forced us to rethink and reinvent methods and timing of participation in associative life.",
+      "Elected vice president of the Youth Sector for two consecutive terms. Sat on the Council and Presidency. Organized social and cultural activities for young people.",
   },
 ];
 
